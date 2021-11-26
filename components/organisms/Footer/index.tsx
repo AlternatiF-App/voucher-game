@@ -2,76 +2,75 @@ import Image from 'next/image';
 
 const Footer = () => {
     return (
-        <section className="footer pt-50">
+        <section className="w-full lg:w-11/12 lg:mx-auto px-4 py-20 mt-14">
             <footer>
                 <div className="container-fluid">
-                    <div className="row">
-                        <div className="col-lg-4 text-lg-start text-center">
-                            <a href="" className="mb-30">
+                    <div className="lg:flex">
+                        <div className="w-full lg:w-1/4 lg:text-left text-center">
+                            <div className="mb-8">
                                 <Image src="/icon/logo.svg" width={60} height={60}/>
-                            </a>
-                            <p className="mt-30 text-lg color-palette-1 mb-30">StoreGG membantu gamers<br/> untuk menjadi
-                                pemenang sejati</p>
-                            <p className="mt-30 text-lg color-palette-1 mb-30">Copyright 2021. All Rights Reserved.</p>
+                            </div>
+                            <p className="mt-8 text-lg text-blue-800 mb-8">
+                                StoreGG membantu gamers<br/> 
+                                untuk menjadi pemenang sejati
+                            </p>
+                            <p className="mt-8 text-lg text-blue-800 mb-8">
+                                Copyright 2021. All Rights Reserved.
+                            </p>
                         </div>
-                        <div className="col-lg-8 mt-lg-0 mt-20">
-                            <div className="row gap-sm-0">
-                                <div className="col-md-4 col-6 mb-lg-0 mb-25">
-                                    <p className="text-lg fw-semibold color-palette-1 mb-12">Company</p>
-                                    <ul className="list-unstyled">
-                                        <li className="mb-6">
-                                            <a href="" className="text-lg color-palette-1 text-decoration-none">About Us</a>
+                        <div className="w-full lg:w-3/4 lg:pt-0 pt-8">
+                            <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-0">
+                                <div className="lg:mb-0 mb-6">
+                                    <p className="text-lg font-semibold text-blue-800 mb-8">
+                                        Company
+                                    </p>
+                                    <ul className="text-blue-800 space-y-3">
+                                        <li>
+                                            <a className="text-lg no-underline cursor-pointer">About Us</a>
                                         </li>
-                                        <li className="mb-6">
-                                            <a href="" className="text-lg color-palette-1 text-decoration-none">Press Release</a>
+                                        <li>
+                                            <a className="text-lg no-underline cursor-pointer">Press Release</a>
                                         </li>
-                                        <li className="mb-6">
-                                            <a href="" className="text-lg color-palette-1 text-decoration-none">Terms of Use</a>
+                                        <li>
+                                            <a className="text-lg no-underline cursor-pointer">Terms of Use</a>
                                         </li>
-                                        <li className="mb-6">
-                                            <a href="" className="text-lg color-palette-1 text-decoration-none">Privacy & Policy</a>
+                                        <li>
+                                            <a className="text-lg no-underline cursor-pointer">Privacy & Policy</a>
                                         </li>
                                     </ul>
                                 </div>
-                                <div className="col-md-4 col-6 mb-lg-0 mb-25">
-                                    <p className="text-lg fw-semibold color-palette-1 mb-12">
+                                <div className="lg:mb-0 mb-6">
+                                    <p className="text-lg font-semibold text-blue-800 mb-8">
                                         Support
                                     </p>
-                                    <ul className="list-unstyled">
-                                        <li className="mb-6">
-                                            <a href="" className="text-lg color-palette-1 text-decoration-none">Refund Policy</a>
+                                    <ul className="text-blue-800 space-y-3">
+                                        <li>
+                                            <a className="text-lg no-underline cursor-pointer">Refund Policy</a>
                                         </li>
-                                        <li className="mb-6">
-                                            <a href="" className="text-lg color-palette-1 text-decoration-none">Unlock Rewards</a>
+                                        <li>
+                                            <a className="text-lg no-underline cursor-pointer">Unlock Rewards</a>
                                         </li>
-                                        <li className="mb-6">
-                                            <a href="" className="text-lg color-palette-1 text-decoration-none">Live Chatting</a>
+                                        <li>
+                                            <a className="text-lg no-underline cursor-pointer">Live Chatting</a>
                                         </li>
                                     </ul>
                                 </div>
-                                <div className="col-md-4 col-12 mt-lg-0 mt-md-0 mt-25">
-                                    <p className="text-lg fw-semibold color-palette-1 mb-12">
+                                <div className="lg:mb-0 mb-6">
+                                    <p className="text-lg font-semibold text-blue-800 mb-8">
                                         Connect
                                     </p>
-                                    <ul className="list-unstyled">
-                                        <li className="mb-6">
-                                            <a href="mailto: hi@store.gg"
-                                                className="text-lg color-palette-1 text-decoration-none">hi@store.gg</a>
+                                    <ul className="text-blue-800 space-y-3">
+                                        <li>
+                                            <a className="text-lg no-underline cursor-pointer">hi@store.gg</a>
                                         </li>
-                                        <li className="mb-6">
-                                            <a href="mailto: team@store.gg"
-                                                className="text-lg color-palette-1 text-decoration-none">team@store.gg</a>
+                                        <li>
+                                            <a className="text-lg no-underline cursor-pointer">team@store.gg</a>
                                         </li>
-                                        <li className="mb-6">
-                                            <a href="http://maps.google.com/?q=Pasific 12,
-                                            Jakarta Selatan" className="text-lg color-palette-1 text-decoration-none">
-                                                Pasific 12, Jakarta Selatan
-                                            </a>
+                                        <li>
+                                            <a className="text-lg no-underline cursor-pointer">Pasific 12, Jakarta Selatan</a>
                                         </li>
-                                        <li className="mb-6">
-                                            <a href="tel: 02111229090"
-                                                className="text-lg color-palette-1 text-decoration-none">021 - 1122 - 9090
-                                            </a>
+                                        <li>
+                                            <a className="text-lg no-underline cursor-pointer">021 - 1122 - 9090</a>
                                         </li>
                                     </ul>
                                 </div>

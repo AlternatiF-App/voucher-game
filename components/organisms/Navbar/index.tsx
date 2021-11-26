@@ -1,21 +1,19 @@
 import Image from 'next/image'
 import Menu from './menu'
 import Auth from './auth'
+import {MenuIcon} from '@heroicons/react/outline'
 
 const Navbar = () => {
     return (
-        <section>
-            <nav className="navbar navbar-expand-lg navbar-light bg-light bg-white pt-lg-40 pb-lg-40 pt-30 pb-50">
-                <div className="container-fluid">
-                    <a className="navbar-brand" href="#">
+        <div className="w-full lg:w-11/12 lg:mx-auto px-4 py-10 bg-white">
+            <div>
+                <div className="flex justify-between items-center">
+                    <div>
                         <Image src="/icon/logo.svg" width={60} height={60}/>
-                    </a>
-                    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span className="navbar-toggler-icon"></span>
-                    </button>
-                    <div className="collapse navbar-collapse" id="navbarNav">
-                        <ul className="navbar-nav ms-auto text-lg gap-lg-0 gap-2">
+                    </div>
+                    <MenuIcon className="visible lg:hidden h-10 w-10" fill="none" stroke="currentColor"/>
+                    <div className="hidden lg:block">
+                        <ul className="flex space-x-10">
                             <Menu title={"Home"} href="/" active/>
                             <Menu title={"Games"} href="/games"/>
                             <Menu title={"Rewards"} href="/"/>
@@ -25,8 +23,8 @@ const Navbar = () => {
                         </ul>
                     </div>
                 </div>
-            </nav>
-        </section>
+            </div>
+        </div>
     )
 }
 

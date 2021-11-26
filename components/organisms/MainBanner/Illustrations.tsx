@@ -2,42 +2,42 @@ import Image from 'next/image'
 
 const Illustrations = () => {
     return (
-        <div className="col-lg-6 col-12 d-lg-block d-none">
-            <div className="d-flex justify-content-lg-end justify-content-center me-lg-5">
-                <div className="position-relative" data-aos="zoom-in">
+        <div className="relative hidden lg:block">
+            <div className="flex lg:justify-end justify-center ml-2">
+                <div className="position-relative">
                     <img src="/img/Header-1.png" className="img-fluid" alt=""/>
-                    <div className="card left-card position-absolute border-0">
-                        <div className="d-flex align-items-center mb-16 gap-3">
-                            <Image src="/img/Header-2.png" width={40} height={40} className="rounded-pill"alt=""/>
+                    <div className="bg-white top-28 left-48 px-4 py-2 rounded-2xl absolute border-0">
+                        <div className="flex items-center mb-4 gap-3">
+                            <Image src="/img/Header-2.png" width={40} height={40} className="rounded-2xl"alt=""/>
                             <div>
-                                <p className="text-sm fw-medium color-palette-1 m-0">
+                                <p className="text-sm font-medium text-blue-800 m-0">
                                     Ahmad Fanani
                                 </p>
-                                <p className="text-xs fw-light color-palette-2 m-0">
+                                <p className="text-xs font-light text-blue-500 m-0">
                                     Professional Gamer
                                 </p>
                             </div>
                         </div>
-                        <div className="d-flex gap-2">
-                            <Image src="/icon/star.svg" width={24} height={22}/>
-                            <Image src="/icon/star.svg" width={24} height={22}/>
-                            <Image src="/icon/star.svg" width={24} height={22}/>
-                            <Image src="/icon/star.svg" width={24} height={22}/>
-                            <Image src="/icon/star.svg" width={24} height={22}/>
+                        <div className="flex justify-around">
+                            <Image src="/icon/star.svg" width={20} height={18}/>
+                            <Image src="/icon/star.svg" width={20} height={18}/>
+                            <Image src="/icon/star.svg" width={20} height={18}/>
+                            <Image src="/icon/star.svg" width={20} height={18}/>
+                            <Image src="/icon/star.svg" width={20} height={18}/>
                         </div>
                     </div>
-                    <div className="card right-card position-absolute border-0">
-                        <div className="position-relative d-flex flex-row justify-content-center mb-24">
-                            <img src="/img/Header-3.png" className="rounded-pill" alt=""/>
-                            <p className="right-card-support text-white text-xxs text-center position-absolute m-0">
+                    <div className="bg-white bottom-24 -right-12 px-4 py-2 rounded-2xl absolute border-0">
+                        <div className="relative flex-row justify-center pb-6">
+                            <img src="/img/Header-3.png" className="rounded-full" alt=""/>
+                            <p className="bg-blue-200 w-full left-auto right-auto bottom-4 text-white text-xs text-center absolute m-0">
                                 New
                             </p>
                         </div>
                         <div>
-                            <p className="text-sm text-center m-0 fw-medium color-palette-1">
+                            <p className="text-sm text-center m-0 font-medium text-blue-800">
                                 Lann Knight
                             </p>
-                            <p className="fw-light text-center m-0 color-palette-2 text-xs">
+                            <p className="font-light text-center m-0 text-blue-400 text-xs">
                                 Dota 2
                             </p>
                         </div>

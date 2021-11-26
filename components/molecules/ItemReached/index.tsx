@@ -5,11 +5,11 @@ interface ItemReachedProps{
 
 const ItemReached = ({count, title}:ItemReachedProps) => {
     return (
-        <div className="me-lg-35">
-            <p className="text-4xl text-lg-start text-center color-palette-1 fw-bold m-0">
+        <div className="lg:mr-10">
+            <p className="text-4xl lg:text-left text-center text-blue-800 font-bold m-0">
                 {count}
             </p>
-            <p className="text-lg text-lg-start text-center color-palette-2 m-0">
+            <p className="text-lg lg:text-left text-center text-blue-800 m-0">
                 {title}
             </p>
         </div>

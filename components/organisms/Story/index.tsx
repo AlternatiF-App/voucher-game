@@ -1,28 +1,28 @@
 
 const Story = () => {
     return (
-        <section className="story pt-50 pb-50">
-            <div className="container-xxl container-fluid">
-                <div className="row align-items-center px-lg-5 mx-auto gap-lg-0 gap-4">
-                    <div className="col-lg-7 col-12 d-lg-flex d-none justify-content-lg-end pe-lg-60" data-aos="zoom-in">
+        <section className="lg:container lg:mx-auto py-14">
+            <div>
+                <div className="grid lg:grid-cols-2 items-center lg:px-5 lg:gap-x-8">
+                    <div className="hidden lg:flex lg:justify-end pr-14">
                         <img src="/img/Header-9.png" width="612" height="452" className="img-fluid" alt=""/>
                     </div>
-                    <div className="col-lg-5 col-12 ps-lg-60">
-                        <div className="">
-                            <h2 className="text-4xl fw-bold color-palette-1 mb-30">
+                    <div className="lg:pl-14">
+                        <div>
+                            <h2 className="text-4xl font-bold text-blue-800 mb-8">
                                 Win the battle.<br/> Be the Champion.
                             </h2>
-                            <p className="text-lg color-palette-1 mb-30">
+                            <p className="text-lg text-blue-800 mb-8">
                                 Kami menyediakan jutaan cara untuk
-                                    <br className="d-sm-block d-none"/>
+                                    <br className="sm:block"/>
                                 membantu players menjadi
-                                    <br className="d-sm-block d-none"/> 
+                                    <br className="sm:block"/>
                                 pemenang sejati
                             </p>
-                            <div className="d-md-block d-flex flex-column w-100">
-                                <a className="btn btn-read text-lg rounded-pill" href="#" role="button">
+                            <div className="md:block flex flex-col w-full">
+                                <button className="px-12 py-2 bg-gray-300 text-black text-lg rounded-full">
                                     Read Story
-                                </a>
+                                </button>
                             </div>
                         </div>
                     </div>

@@ -8,13 +8,13 @@ interface ItemStepProps{
 
 const ItemStep = ({icon, title, desc1, desc2}:ItemStepProps) => {
     return (
-        <div className="col-lg-4">
-            <div className="card feature-card border-0">
-                <img src={`/icon/${icon}.svg`} alt="icon/step" className="mb-30" width={80} height={80}/>
-                <p className="fw-semibold text-2xl mb-2 color-palette-1">
+        <div>
+            <div className="bg-white px-4 py-6 border-0 rounded-2xl">
+                <img src={`/icon/${icon}.svg`} alt="icon/step" width={80} height={80}/>
+                <p className="font-semibold text-2xl pt-7 pb-4 text-blue-800">
                     {title}
                 </p>
-                <p className="text-lg color-palette-1 mb-0">
+                <p className="text-lg text-blue-800">
                     {desc1}<br/>{desc2}
                 </p>
             </div>
