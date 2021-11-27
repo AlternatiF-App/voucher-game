@@ -1,17 +1,17 @@
 
 const ItemCheckout = () => {
     return (
-        <div className="game-checkout d-flex flex-row align-items-center pt-md-50 pb-md-50 pt-30 pb-30">
-            <div className="pe-4">
-                <div className="cropped">
-                    <img src="/img/Thumbnail-3.png" className="img-fluid" alt=""/>
+        <div className="flex flex-row items-center space-x-8 md:py-14 py-8">
+            <div>
+                <div className="h-36 w-56 overflow-hidden rounded-3xl">
+                    <img src="/img/Thumbnail-3.png" className="max-w-full h-auto object-cover" alt=""/>
                 </div>
             </div>
             <div>
-                <p className="fw-bold text-xl color-palette-1 mb-10">
+                <p className="font-bold text-xl text-blue-800 mb-4">
                     Mobile Legends :<br/> The New Battle 2021
                 </p>
-                <p className="color-palette-2 m-0">
+                <p className="text-blue-600 m-0">
                     Category : Mobile
                 </p>
             </div>

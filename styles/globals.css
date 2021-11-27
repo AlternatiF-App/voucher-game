@@ -9,3 +9,19 @@
     .hide-scroll-bar::-webkit-scrollbar {
     display: none;
 }
+
+.detail .select-nominal #check-icon{
+    @apply opacity-0;
+}
+
+.detail input[type="radio"]:checked+.select-nominal{
+    @apply border border-solid border-blue-500 bg-blue-50;
+}
+
+.detail input[type="radio"]:checked+.select-nominal #check-icon{
+    @apply opacity-100;
+}
+
+.check-label .check-box:checked ~ .checkmark{
+    @apply opacity-100 border border-solid border-blue-800
+}

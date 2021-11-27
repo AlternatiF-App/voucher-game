@@ -6,7 +6,7 @@ const Footer = () => {
             <footer>
                 <div className="container-fluid">
                     <div className="lg:flex">
-                        <div className="w-full lg:w-1/4 lg:text-left text-center">
+                        <div className="w-full lg:w-2/5 lg:text-left text-center">
                             <div className="mb-8">
                                 <Image src="/icon/logo.svg" width={60} height={60}/>
                             </div>
@@ -18,7 +18,7 @@ const Footer = () => {
                                 Copyright 2021. All Rights Reserved.
                             </p>
                         </div>
-                        <div className="w-full lg:w-3/4 lg:pt-0 pt-8">
+                        <div className="w-full lg:w-3/5 lg:pt-0 pt-8">
                             <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-0">
                                 <div className="lg:mb-0 mb-6">
                                     <p className="text-lg font-semibold text-blue-800 mb-8">

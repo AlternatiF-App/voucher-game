@@ -1,36 +1,32 @@
-import Footer from "../components/organisms/Footer"
-import Navbar from "../components/organisms/Navbar"
 import Image from 'next/image'
 import ItemCheckout from "../components/organisms/ItemCheckout"
 import CheckoutDetail from "../components/organisms/CheckoutDetail"
-import CompleteCheckout from "./complete-checkout"
+import CheckoutConfirmation from "../components/organisms/CheckoutConfirmation"
 
 const Checkout = () => {
     return (
         <>
-            <Navbar/>
-                <section className="checkout mx-auto pt-md-100 pb-md-145 pt-30 pb-30">
-                    <div className="container-fluid">
-                        <div className="logo text-md-center text-start pb-50">
-                            <a className="" href="#">
-                                <Image src="/icon/logo.svg" width={60} height={60}/>
-                            </a>
+            <section className="w-full lg:w-1/2 mx-auto md:py-24 py-8">
+                <div>
+                    <div className="md:text-center text-left pb-14">
+                        <div>
+                            <Image src="/icon/logo.svg" width={60} height={60}/>
                         </div>
-                        <div className="title-text pt-md-50 pt-0">
-                            <h2 className="text-4xl fw-bold color-palette-1 mb-10">
-                                Checkout
-                            </h2>
-                            <p className="text-lg color-palette-1 mb-0">
-                                Waktunya meningkatkan cara bermain
-                            </p>
-                        </div>
-                        <ItemCheckout/>
-                        <hr/>
-                        <CheckoutDetail/>
-                        <CompleteCheckout/>
                     </div>
-                </section>  
-            <Footer/> 
+                    <div className="pt-14 lg:pt-0">
+                        <h2 className="text-4xl font-bold text-blue-800 mb-3">
+                            Checkout
+                        </h2>
+                        <p className="text-lg text-blue-800 mb-0">
+                            Waktunya meningkatkan cara bermain
+                        </p>
+                    </div>
+                    <ItemCheckout/>
+                    <hr/>
+                    <CheckoutDetail/>
+                    <CheckoutConfirmation/>
+                </div>
+            </section>  
         </>
     )
 }
