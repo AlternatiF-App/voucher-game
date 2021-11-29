@@ -1,9 +1,9 @@
 
 const FooterSidebar = () => {
     return (
-        <div className="sidebar-footer pt-73 pe-30">
-            <div className="footer-card">
-                <div className="d-flex justify-content-between mb-20">
+        <div className="pt-16">
+            <div className="rounded-2xl p-6">
+                <div className="flex justify-around mb-6">
                     <svg width="50" height="50" viewBox="0 0 50 50" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
                         <mask id="mask0" mask-type="alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="50"
@@ -25,14 +25,13 @@ const FooterSidebar = () => {
                                 fill="white" />
                         </g>
                     </svg>
-                    <p className="fw-medium color-palette-1">
+                    <p className="font-medium text-blue-800">
                         Top Up &<br/> Be The Winner
                     </p>
                 </div>
-                <a className="btn btn-get-started w-100 fw-medium text-xs text-center text-white rounded-pill"
-                    href="#" role="button">
+                <button className="px-6 py-2 bg-blue-500 w-full font-medium text-xs text-center text-white rounded-full">
                         Get Started
-                </a>
+                </button>
             </div>
         </div>
     )

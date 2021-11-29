@@ -4,7 +4,7 @@ import TransactionContent from "../../../components/organisms/TransactionContent
 const Transactions = () => {
     return (
         <>
-            <section className="transactions overflow-auto">
+            <section className="w-full flex overflow-auto">
                 <Sidebar activeMenu={'transactions'}/>
                 <TransactionContent/>
             </section>

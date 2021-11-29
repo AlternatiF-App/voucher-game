@@ -3,33 +3,31 @@ import TableRow from './TableRow'
 
 const OverviewContent = () => {
     return (
-        <main className="main-wrapper">
-            <div className="ps-lg-0">
-                <h2 className="text-4xl fw-bold color-palette-1 mb-30">
+        <main className="w-3/4 h-screen overflow-y-auto hide-scroll-bar relative py-14">
+            <div className="w-full">
+                <h2 className="text-4xl font-bold text-blue-800 mb-8">
                     Overview
                 </h2>
-                <div className="top-up-categories mb-30">
-                    <p className="text-lg fw-medium color-palette-1 mb-14">
+                <div className="px-6 rounded-2xl mb-8">
+                    <p className="text-lg font-medium text-blue-800 mb-3">
                         Top Up Categories
                     </p>
-                    <div className="main-content">
-                        <div className="row">
-                            <Category icon={'desktop'} title1={'Game'} title2={'Desktop'} total={'18.000.500'}/>
-                            <Category icon={'mobile'} title1={'Game'} title2={'Mobile'} total={'8.455.000'}/>
-                            <Category icon={'other'} title1={'Other'} title2={'Categories'} total={'5.000.000'}/>
-                        </div>
+                    <div className="flex justify-between">
+                        <Category icon={'desktop'} title1={'Game'} title2={'Desktop'} total={'18.000.500'}/>
+                        <Category icon={'mobile'} title1={'Game'} title2={'Mobile'} total={'8.455.000'}/>
+                        <Category icon={'other'} title1={'Other'} title2={'Categories'} total={'5.000.000'}/>
                     </div>
                 </div>
-                <div className="latest-transaction">
-                    <p className="text-lg fw-medium color-palette-1 mb-14">Latest Transactions</p>
-                    <div className="main-content main-content-table overflow-auto">
-                        <table className="table table-borderless">
+                <div className="py-2 px-4">
+                    <p className="text-lg font-medium text-blue-800 mb-8">Latest Transactions</p>
+                    <div className="rounded-2xl px-4 py-2 overflow-auto">
+                        <table className="w-full">
                             <thead>
-                                <tr className="color-palette-1">
-                                    <th className="text-start" scope="col">Game</th>
-                                    <th scope="col">Item</th>
-                                    <th scope="col">Price</th>
-                                    <th scope="col">Status</th>
+                                <tr className="text-blue-800 text-left">
+                                    <th className="pb-4">Game</th>
+                                    <th className="pb-4">Item</th>
+                                    <th className="pb-4">Price</th>
+                                    <th className="pb-4">Status</th>
                                 </tr>
                             </thead>
                             <tbody>

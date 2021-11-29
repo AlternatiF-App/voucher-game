@@ -10,35 +10,35 @@ interface TableRowProps{
 
 const TableRow = ({title, category, item, nominal, status, image, page}:TableRowProps) => {
     return (
-        <tr className="align-middle">
-            <th scope="row">
-                <img className="float-start me-3 mb-lg-0 mb-3" src={`/img/${image}.png`}
+        <tr>
+            <th scope="flex items-center">
+                <img className="float-left lg:mb-0 mb-3 mr-3" src={`/img/${image}.png`}
                     width="80" height="60" alt=""/>
-                <div className="game-title-header">
-                    <p className="game-title fw-medium text-start color-palette-1 m-0">
+                <div className="my-3">
+                    <p className="font-medium text-left text-blue-800 m-0">
                         {title}
                     </p>
-                    <p className="text-xs fw-normal text-start color-palette-2 m-0">
+                    <p className="text-xs font-normal text-left text-blue-600 m-0">
                         {category}
                     </p>
                 </div>
             </th>
             <td>
-                <p className="fw-medium color-palette-1 m-0">
+                <p className="font-medium text-blue-800 m-0">
                     {item} Gold
                 </p>
             </td>
             <td>
-                <p className="fw-medium text-start color-palette-1 m-0">
+                <p className="font-medium text-left text-blue-800 m-0">
                     Rp {nominal}
                 </p>
             </td>
             <td>
-                <div>
-                    {status === 'Pending' && <span className="float-start icon-status pending"></span>}
-                    {status === 'Success' && <span className="float-start icon-status success"></span>}
-                    {status === 'Failed' && <span className="float-start icon-status failed"></span>}
-                    <p className="fw-medium text-start color-palette-1 m-0 position-relative">
+                <div className='flex items-center space-x-2'>
+                    {status === 'Pending' && <div className="float-left h-2 w-2 bg-yellow-600 rounded-full"></div>}
+                    {status === 'Success' && <div className="float-left h-2 w-2 bg-green-600 rounded-full"></div>}
+                    {status === 'Failed' && <div className="float-left h-2 w-2 bg-red-600 rounded-full"></div>}
+                    <p className="font-medium text-left text-blue-800 m-0 relative">
                         {status}
                     </p>
                 </div>
@@ -46,7 +46,7 @@ const TableRow = ({title, category, item, nominal, status, image, page}:TableRow
             {
                 page === 'transactions' && <td>
                     <a href="../member/transactions-detail.html"
-                        className="btn btn-status rounded-pill text-sm">Details</a>
+                        className="px-4 py-2 bg-gray-200 rounded-full text-sm">Details</a>
                 </td>
             }
         </tr>

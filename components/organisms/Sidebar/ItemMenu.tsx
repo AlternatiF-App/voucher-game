@@ -1,4 +1,3 @@
-import cx from 'classnames'
 import Link from 'next/link'
 
 interface ItemMenuProps{
@@ -10,18 +9,12 @@ interface ItemMenuProps{
 
 const ItemMenu = ({active, icon, title, link}:ItemMenuProps) => {
 
-    const classTitle = cx({
-        'item':true,
-        'mb-30':true,
-        active
-    })
-
     return (
-        <div className={classTitle}>
-            <img src={`/icon/ic-menu-${icon}.svg`} className="icon me-3"/>
-            <p className="item-title m-0">
+        <div className={`${active && 'active'} h-full flex items-center space-x-4 relative pb-6 item`}>
+            <img src={`/icon/ic-menu-${icon}.svg`}/>
+            <p className="m-0">
                 <Link href={link}>
-                    <a className="text-lg text-decoration-none">
+                    <a className="text-lg">
                         {title}
                     </a>
                 </Link>

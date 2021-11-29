@@ -8,8 +8,8 @@ interface SidebarProps{
 
 const Sidebar = ({activeMenu}:SidebarProps) => {
     return (
-        <section className="sidebar">
-            <div className="content pt-50 pb-30 ps-30">
+        <section className="w-1/4">
+            <div className="relative h-screen overflow-y-auto hide-scroll-bar pt-14 pb-8 px-8">
                 <Profile/>
                 <div className="menus">
                     <ItemMenu icon={'overview'} title={'Overview'} link={'/member'} active={activeMenu === 'overview'}/>

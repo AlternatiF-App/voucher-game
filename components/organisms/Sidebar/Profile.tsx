@@ -1,12 +1,12 @@
 
 const Profile = () => {
     return (
-        <div className="user text-center pb-50 pe-30">
-            <img src="/img/avatar-1.png" width="90" height="90" className="img-fluid mb-20" />
-            <h2 className="fw-bold text-xl color-palette-1 m-0">
+        <div className="text-center pb-14 pr-8">
+            <img src="/img/avatar-1.png" width="90" height="90" className="mx-auto mb-6" />
+            <h2 className="font-bold text-xl text-blue-800 m-0">
                 Ahmad Fanani
             </h2>
-            <p className="color-palette-2 m-0">
+            <p className="text-blue-600 m-0">
                 ahmad@fanani.com
             </p>
         </div>

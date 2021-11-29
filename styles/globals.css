@@ -6,7 +6,7 @@
     -ms-overflow-style: none;
     scrollbar-width: none;
 }
-    .hide-scroll-bar::-webkit-scrollbar {
+.hide-scroll-bar::-webkit-scrollbar {
     display: none;
 }
 
@@ -24,4 +24,14 @@
 
 .check-label .check-box:checked ~ .checkmark{
     @apply opacity-100 border border-solid border-blue-800
+}
+
+.menus .item.active a,
+.menus .item:hover a{
+    @apply text-blue-800 font-bold;
+}
+
+.menus .item.active::after{
+    @apply border border-solid border-blue-800 rounded-full absolute bg-blue-800 right-0 transition-all duration-75 ease-linear;
+    content: " ";
 }
