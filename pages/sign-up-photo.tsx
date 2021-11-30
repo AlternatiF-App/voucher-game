@@ -1,32 +1,33 @@
 import Image from 'next/image'
+import Link from 'next/link'
 
 const SignUpPhoto = () => {
     return (
         <>
-            <section className="sign-up-photo mx-auto pt-lg-227 pb-lg-227 pt-130 pb-50">
-                <div className="container mx-auto">
+            <section className="w-full lg:w-1/3 lg:container lg:mx-auto lg:py-56 pt-32 pb-14">
+                <div>
                     <form action="">
-                        <div className="form-input d-md-block d-flex flex-column">
+                        <div className="md:block flex flex-col">
                             <div>
-                                <div className="mb-20">
-                                    <div className="image-upload text-center">
-                                        <label for="avatar">
+                                <div className="mb-6">
+                                    <div className="text-center">
+                                        <label className="cursor-pointer rounded-full">
                                             <Image src="/icon/upload.svg" width={120} height={120}/>
+                                            <input className="invisible h-0 w-0" id="avatar" type="file" name="avatar" accept="image/png, image/jpeg" />
                                         </label>
-                                        <input id="avatar" type="file" name="avatar" accept="image/png, image/jpeg" />
                                     </div>
                                 </div>
-                                <h2 className="fw-bold text-xl text-center color-palette-1 m-0">
+                                <h2 className="font-bold text-xl text-center text-blue-800 m-0">
                                     Ahmad Fanani
                                 </h2>
-                                <p className="text-lg text-center color-palette-1 m-0">
+                                <p className="text-lg text-center text-blue-800 m-0">
                                     ahmad@fanani.com
                                 </p>
-                                <div className="pt-50 pb-50">
-                                    <label for="category" className="form-label text-lg fw-medium color-palette-1 mb-10">
+                                <div className="py-14">
+                                    <label className="text-lg font-medium text-blue-800">
                                         Favorite Game
                                     </label>
-                                    <select id="category" name="category" className="form-select d-block w-100 rounded-pill text-lg"
+                                    <select id="category" name="category" className="block w-full px-6 py-2 mt-4 rounded-full text-lg"
                                         aria-label="Favorite Game">
                                         <option value="" disabled selected>Select Category</option>
                                         <option value="fps">First Person Shoter</option>
@@ -37,15 +38,15 @@ const SignUpPhoto = () => {
                                 </div>
                             </div>
 
-                            <div className="button-group d-flex flex-column mx-auto">
-                                <a className="btn btn-create fw-medium text-lg text-white rounded-pill mb-16"
-                                    href="./sign-up-photo-success.html" role="button">
+                            <div className="flex flex-col mx-auto">
+                                <Link href="/sign-up-success">
+                                <button className="py-2 font-medium text-lg bg-blue-800 text-white rounded-full mb-4">
                                         Create My Account
-                                </a>
-                                <a className="btn btn-tnc text-lg color-palette-1 text-decoration-underline pt-15" href="#"
-                                    role="button">
+                                </button>
+                                </Link>
+                                <button className="py-2 font-medium text-lg text-blue-800 bg-gray-200 rounded-full">
                                         Terms & Conditions
-                                </a>
+                                </button>
                             </div>
                         </div>
                     </form>

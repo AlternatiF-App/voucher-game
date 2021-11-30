@@ -2,9 +2,9 @@
 const SignUpSuccess = () => {
     return (
         <>
-            <section className="sign-up-success mx-auto pt-md-179 pb-md-179 pt-150 pb-100">
-                <div className="container-fluid">
-                    <div className="text-center">
+            <section className="w-full lg:w-1/3 lg:container lg:mx-auto md:py-44 pt-36 pb-24">
+                <div>
+                    <div className="flex justify-center">
                         <svg className="img-fluid" width="316" height="300" viewBox="0 0 316 300" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
                             <g clip-path="url(#clip0)">
@@ -107,16 +107,16 @@ const SignUpSuccess = () => {
                             </defs>
                         </svg>
                     </div>
-                    <div className="pt-70 pb-md-50 pb-150">
-                        <h2 className="text-4xl fw-bold text-center color-palette-1 mb-10">Well Done!</h2>
-                        <p className="text-lg text-center color-palette-1 m-0">Kamu sudah bisa melakukan top up<br
-                                className="d-sm-block d-none"/>
+                    <div className="pt-20 md:pb-14 pb-36">
+                        <h2 className="text-4xl font-bold text-center text-blue-800 mb-4">Well Done!</h2>
+                        <p className="text-lg text-center text-blue-800 m-0">Kamu sudah bisa melakukan top up<br
+                                className="sm:block hidden"/>
                             dan menjadi pemenang!</p>
                     </div>
-                    <div className="button-group d-flex flex-column mx-auto">
-                        <a className="btn btn-top-up fw-medium text-lg text-white rounded-pill" href="../index.html"
-                            role="button">Top
-                            Up</a>
+                    <div className="flex justify-center mx-auto">
+                        <button className="px-8 py-2 font-medium text-lg bg-blue-600 text-white rounded-full">
+                            Top Up
+                        </button>
                     </div>
                 </div>
             </section>   

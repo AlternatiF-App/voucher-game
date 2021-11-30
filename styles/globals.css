@@ -32,6 +32,6 @@
 }
 
 .menus .item.active::after{
-    @apply border border-solid border-blue-800 rounded-full absolute bg-blue-800 right-0 transition-all duration-75 ease-linear;
+    @apply border-2 h-full border-solid border-blue-800 rounded-full absolute bg-blue-800 right-0 transition-all duration-75 ease-linear;
     content: " ";
 }

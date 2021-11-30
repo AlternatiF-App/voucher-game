@@ -3,43 +3,43 @@ import Link from 'next/link'
 const SignUpForm = () => {
     return (
         <>
-            <h2 className="text-4xl fw-bold color-palette-1 mb-10">
+            <h2 className="text-4xl font-bold text-blue-800 mb-4">
                 Sign Up
             </h2>
-            <p className="text-lg color-palette-1 m-0">
+            <p className="text-lg text-blue-800 m-0">
                 Daftar dan bergabung dengan kami
             </p>
-            <div className="pt-50">
-                <label for="name" className="form-label text-lg fw-medium color-palette-1 mb-10">
+            <div className="pt-14">
+                <p className="form-label text-lg fw-medium color-palette-1 mb-10">
                     Full Name
-                </label>
-                <input type="text" className="form-control rounded-pill text-lg" id="name" name="name"
-                    aria-describedby="name" placeholder="Enter your name"/>
+                </p>
+                <input className="w-full px-8 py-2 border border-solid focus-within:border-blue-800 focus-within:text-blue-800 outline-none text-white rounded-full text-lg"
+                    type="text" id="name" name="name" placeholder="Enter your name"/>
             </div>
-            <div className="pt-30">
-                <label for="email" className="form-label text-lg fw-medium color-palette-1 mb-10">
+            <div className="pt-8">
+                <p className="form-label text-lg fw-medium color-palette-1 mb-10">
                     Email Address
-                </label>
-                <input type="email" className="form-control rounded-pill text-lg" id="email" name="email"
-                    aria-describedby="email" placeholder="Enter your email address"/>
+                </p>
+                <input className="w-full px-8 py-2 border border-solid focus-within:border-blue-800 focus-within:text-blue-800 outline-none text-white rounded-full text-lg"
+                    type="email" id="email" name="email" placeholder="Enter your email address"/>
             </div>
             <div className="pt-30">
-                <label for="password" className="form-label text-lg fw-medium color-palette-1 mb-10">
+                <p className="form-label text-lg fw-medium color-palette-1 mb-10">
                     Password
-                </label>
-                <input type="password" className="form-control rounded-pill text-lg" id="password" name="password"
-                    aria-describedby="password" placeholder="Your password"/>
+                </p>
+                <input className="w-full px-8 py-2 border border-solid focus-within:border-blue-800 focus-within:text-blue-800 outline-none text-white rounded-full text-lg"
+                    type="password" id="password" name="password" placeholder="Your password"/>
             </div>
-            <div className="button-group d-flex flex-column mx-auto pt-50">
+            <div className="flex flex-col mx-auto pt-14">
                 <Link href='/sign-up-photo'>
-                <a className="btn btn-sign-up fw-medium text-lg text-white rounded-pill mb-16" role="button">
+                <button className="px-8 py-2 font-medium text-lg bg-blue-600 text-white rounded-full mb-4">
                     Continue
-                </a>
+                </button>
                 </Link>
                 <Link href='/sign-in'>
-                    <a className="btn btn-sign-in fw-medium text-lg color-palette-1 rounded-pill" role="button">
+                    <button className="px-8 py-2 font-medium text-lg bg-gray-200 text-blue-600 rounded-full">
                         Sign In
-                    </a>
+                    </button>
                 </Link>
             </div>
         </>

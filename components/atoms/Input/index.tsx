@@ -5,11 +5,11 @@ interface InputProps{
 const Input = ({label, ...nativeProps}:InputProps) => {
     return (
         <>
-            <label for="name" className="form-label text-lg fw-medium color-palette-1 mb-10">
+            <p className="text-lg font-medium text-blue-800 mb-2">
                 {label}
-            </label>
-            <input type="text" className="form-control rounded-pill text-lg" id="name" name="name"
-                aria-describedby="name" placeholder="Enter your name"
+            </p>
+            <input className="w-full px-8 py-2 border border-solid focus-within:border-blue-800 focus-within:text-blue-800 outline-none text-white rounded-full text-lg"
+                type="text" id="name" name="name" placeholder="Enter your name"
                 {...nativeProps}    
             />
         </>
