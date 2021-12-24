@@ -1,17 +1,24 @@
-import axios from 'axios'
+import callAPI from '../config'
+import { LoginTypes } from './data-types'
 
 const ROOT_API = 'https://voucher-game-server.herokuapp.com/'
 const API_VERSION = 'api/v1'
 
-export async function setSignUp(data:any){
-    const res = await axios.post(`${ROOT_API}${API_VERSION}/auth/signup`, data).catch(error => error.response)
-    const axiosRes = res.data
-    if(axiosRes?.error === 1){
-        return axiosRes
-    }
-    return axiosRes.data
+export async function setSignUp(data:FormData){
+    const url = `${ROOT_API}${API_VERSION}/auth/signup`
+    return callAPI({
+        url,
+        method: 'POST',
+        data
+    })
 }
 
-export async function setLogin(){
-    return null
+export async function setLogin(data:LoginTypes){
+    const url = `${ROOT_API}${API_VERSION}/auth/signin`
+
+    return callAPI({
+        url,
+        method: 'POST',
+        data
+    })
 }

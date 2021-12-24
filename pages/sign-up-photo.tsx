@@ -27,12 +27,12 @@ const SignUpPhoto = () => {
     useEffect(() => {
         getGameCategoryAPI()
         const getLocalForm:any = localStorage.getItem('user-form')
-        setLocalForm(JSON.parse(getLocalForm))
+        setLocalForm(JSON.parse(getLocalForm!))
     },[])
 
     const onSubmit = async () => {
         const getLocalForm:any = await localStorage.getItem('user-form')
-        const form = JSON.parse(getLocalForm)
+        const form = JSON.parse(getLocalForm!)
         const data = new FormData();
 
         data.append('image', image);
@@ -46,7 +46,7 @@ const SignUpPhoto = () => {
         data.append('favourite', favorites);
 
         const result = await setSignUp(data)
-        if(result?.error === 1) {
+        if(result?.error) {
             toast.error(result.message)
         }else{
             toast.success('Register is Success')
