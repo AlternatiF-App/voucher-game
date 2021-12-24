@@ -4,8 +4,11 @@ const ROOT_API = 'https://voucher-game-server.herokuapp.com/'
 const API_VERSION = 'api/v1'
 
 export async function setSignUp(data:any){
-    const res = await axios.post(`${ROOT_API}${API_VERSION}/auth/signup`, data)
+    const res = await axios.post(`${ROOT_API}${API_VERSION}/auth/signup`, data).catch(error => error.response)
     const axiosRes = res.data
+    if(axiosRes?.error === 1){
+        return axiosRes
+    }
     return axiosRes.data
 }
 
