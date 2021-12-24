@@ -1,18 +1,19 @@
 import Link from 'next/link'
 
 interface ItemGameProps{
-    img: 'Thumbnail-1' | 'Thumbnail-2' | 'Thumbnail-3' | 'Thumbnail-4' | 'Thumbnail-5';
+    id: string;
+    img: string;
     title: string;
     desc:string;
 }
 
-const ItemGame = ({img, title, desc}:ItemGameProps) => {
+const ItemGame = ({id, img, title, desc}:ItemGameProps) => {
     return (
-        <div className="relative group">
-            <Link href='/detail'>
-                <div>
+        <div>
+            <Link href={`/detail/${id}`}>
+                <div className="relative group">
                     <div className="h-72 w-52 group-hover:border-opacity-100 border-opacity-0 border-4 border-black rounded-3xl p-2 transition-all duration-300 ease-in-out">
-                        <img src={`/img/${img}.png`} className="rounded-3xl h-full w-full" alt=""/>
+                        <img src={`https://voucher-game-server.herokuapp.com/uploads/${img}`} className="rounded-3xl h-full w-full" alt=""/>
                     </div>
                     <div className="opacity-0 group-hover:opacity-100 left-0 right-0 absolute bottom-5 m-8 transition-all duration-300 ease-in-out cursor-pointer">
                         <div className="relative flex flex-col justify-between h-52 no-underline">

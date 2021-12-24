@@ -1,6 +1,21 @@
 import ItemGame from '../../molecules/ItemGame'
+import { useCallback, useEffect, useState } from 'react'
+import { getFeaturedGames } from '../../../services/player'
+import { GameItemTypes } from '../../../services/data-types'
 
 const FeaturedGames = () => {
+
+    const [gameList, setGameList] = useState([])
+
+    const getFeaturedGamesList = useCallback(async () => {
+        const data = await getFeaturedGames()
+        setGameList(data)
+    }, [getFeaturedGames])
+
+    useEffect(() => {
+        getFeaturedGamesList()
+    },[])
+
     return (
         <section className="lg:container lg:mx-auto py-14">
             <div className="container-fluid">
@@ -8,11 +23,18 @@ const FeaturedGames = () => {
                     Our Featured<br/> Games This Year
                 </h2>
                 <div className="flex overflow-x-auto hide-scroll-bar lg:justify-between lg:space-x-8 space-x-6">
-                    <ItemGame img={'Thumbnail-1'} title={'Super Mechs'} desc={'Mobile'}/>
-                    <ItemGame img={'Thumbnail-2'} title={'Call of Duty: Modern'} desc={'Mobile'}/>
-                    <ItemGame img={'Thumbnail-3'} title={'Mobile Legends'} desc={'Mobile'}/>
-                    <ItemGame img={'Thumbnail-4'} title={'Clash of Clans'} desc={'Mobile'}/>
-                    <ItemGame img={'Thumbnail-5'} title={'Valorant'} desc={'Desktop'}/>
+                    {
+                        gameList.map((item:GameItemTypes) => {
+                            return (
+                                <ItemGame 
+                                    id={item._id}
+                                    key={item._id}
+                                    img={item.thumbnail}
+                                    title={item.name}
+                                    desc={item.category.name}/>
+                            )
+                        })
+                    }
                 </div>
             </div>
         </section>

@@ -1,7 +1,51 @@
+import { useCallback, useEffect, useState } from 'react';
 import Image from 'next/image'
 import Link from 'next/link'
+import { getGameCategory } from '../services/player';
+import { setSignUp } from '../services/auth';
 
 const SignUpPhoto = () => {
+
+    const [categories, setCategory] = useState([])
+    const [favorites, setFavorites] = useState('')
+    const [image, setImage] = useState('')
+    const [imagePreview, setImagePreview] = useState(null)
+    const [localForm, setLocalForm] = useState({
+        name: '',
+        email: ''
+    })
+
+    const getGameCategoryAPI = useCallback(async () => {
+        const data = await getGameCategory()
+        setCategory(data)
+        setFavorites(data[0]._id)
+    }, [getGameCategory])
+
+    useEffect(() => {
+        getGameCategoryAPI()
+        const getLocalForm = localStorage.getItem('user-form')
+        setLocalForm(JSON.parse(getLocalForm))
+    },[])
+
+    const onSubmit = async () => {
+        const getLocalForm = await localStorage.getItem('user-form')
+        const form = JSON.parse(getLocalForm)
+        const data = new FormData();
+
+        data.append('image', image);
+        data.append('email', form.email);
+        data.append('name', form.name);
+        data.append('username', form.name);
+        data.append('password', form.password);
+        data.append('phoneNumber', '082142931584');
+        data.append('role', 'user');
+        data.append('status', 'Y');
+        data.append('favourite', favorites);
+
+        const result = await setSignUp(data)
+        console.log('cok', result);
+    }
+
     return (
         <>
             <section className="w-full lg:w-1/3 lg:container lg:mx-auto lg:py-56 pt-32 pb-14">
@@ -12,40 +56,54 @@ const SignUpPhoto = () => {
                                 <div className="mb-6">
                                     <div className="text-center">
                                         <label className="cursor-pointer rounded-full">
-                                            <Image src="/icon/upload.svg" width={120} height={120}/>
-                                            <input className="invisible h-0 w-0" id="avatar" type="file" name="avatar" accept="image/png, image/jpeg" />
+                                            <Image src={imagePreview ? imagePreview : "/icon/upload.svg"} width={120} height={120} className="rounded-full object-cover"/>
+                                            <input className="invisible h-0 w-0" 
+                                                id="avatar"
+                                                type="file"
+                                                name="avatar"
+                                                onChange={(e:any) => {
+                                                    console.log(e.target.files[0])
+                                                    const img = e.target.files[0]
+                                                    setImagePreview(URL.createObjectURL(img))
+                                                    return setImage(img)
+                                                }}
+                                                accept="image/png, image/jpeg" />
                                         </label>
                                     </div>
                                 </div>
                                 <h2 className="font-bold text-xl text-center text-blue-800 m-0">
-                                    Ahmad Fanani
+                                    {localForm.name}
                                 </h2>
                                 <p className="text-lg text-center text-blue-800 m-0">
-                                    ahmad@fanani.com
+                                    {localForm.email}
                                 </p>
                                 <div className="py-14">
                                     <label className="text-lg font-medium text-blue-800">
                                         Favorite Game
                                     </label>
                                     <select id="category" name="category" className="block w-full px-6 py-2 mt-4 rounded-full text-lg"
-                                        aria-label="Favorite Game">
-                                        <option value="" disabled selected>Select Category</option>
-                                        <option value="fps">First Person Shoter</option>
-                                        <option value="rpg">Role Playing Game</option>
-                                        <option value="arcade">Arcade</option>
-                                        <option value="sport">Sport</option>
+                                        aria-label="Favorite Game"
+                                        value={favorites}
+                                        onChange={(e:any) => setFavorites(e.target.value)}
+                                    >
+                                        {
+                                            categories.map((category:any) => {
+                                                return <option key={category._id} value={category._id}>{category.name}</option>
+                                            })
+                                        }
                                     </select>
                                 </div>
                             </div>
 
                             <div className="flex flex-col mx-auto">
-                                <Link href="/sign-up-success">
-                                <button className="py-2 font-medium text-lg bg-blue-800 text-white rounded-full mb-4">
-                                        Create My Account
+                                <button className="py-2 font-medium text-lg bg-blue-800 text-white rounded-full mb-4"
+                                    type="button"
+                                    onClick={onSubmit}
+                                >
+                                    Create My Account
                                 </button>
-                                </Link>
                                 <button className="py-2 font-medium text-lg text-blue-800 bg-gray-200 rounded-full">
-                                        Terms & Conditions
+                                    Terms & Conditions
                                 </button>
                             </div>
                         </div>

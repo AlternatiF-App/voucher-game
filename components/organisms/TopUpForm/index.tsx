@@ -1,6 +1,15 @@
+import { PaymentTypes, NominalsTypes } from "../../../services/data-types"
 import ItemNominal from "./ItemNominal"
 
-const TopUpForm = () => {
+interface TopUpFormProps {
+    nominals: NominalsTypes[],
+    payments: PaymentTypes[]
+}
+
+const TopUpForm = (props:TopUpFormProps) => {
+
+    const {nominals, payments} = props
+
     return (
         <form action="./checkout.html" method="POST">
             <div className="md:pt-16 pt-8">
@@ -17,11 +26,17 @@ const TopUpForm = () => {
                     Nominal Top Up
                 </p>
                 <div className="flex flex-wrap">
-                    <ItemNominal card={'topup'} gold={125} total={'3.250.000'}/>
-                    <ItemNominal card={'topup'} gold={225} total={'3.250.000'}/>
-                    <ItemNominal card={'topup'} gold={350} total={'3.250.000'}/>
-                    <ItemNominal card={'topup'} gold={550} total={'3.250.000'}/>
-                    <ItemNominal card={'topup'} gold={750} total={'3.250.000'}/>
+                    {
+                        nominals.map((nominal:any) => {
+                            return <ItemNominal 
+                                key={nominal._id}
+                                card={'topup'}
+                                _id={nominal._id}
+                                coinQuantity={nominal.coinQuantity}
+                                coinName={nominal.coinName}
+                                price={nominal.price}/>
+                        })
+                    }
                 </div>
             </div>
             <div className="pb-md-50 pb-20">
@@ -30,8 +45,22 @@ const TopUpForm = () => {
                 </p>
                 <fieldset id="paymentMethod">
                     <div className="flex flex-wrap">
-                        <ItemNominal card={'transfer'} gold={'Transfer'} total={'Worldwide Available'}/>
-                        <ItemNominal card={'transfer'} gold={'VISA'} total={'Credit Card'}/>
+                        {
+                            payments.map((payment:any) => 
+                                payment.banks.map((bank:any) => {
+                                    return(
+                                        <ItemNominal 
+                                            key={payment._id}
+                                            card={'transfer'}
+                                            bankID={bank._id}
+                                            paymentType={payment.type}
+                                            accountName={bank.name}
+                                            bankName={bank.nameBank}
+                                        />
+                                    )
+                                })
+                            )
+                        }
                     </div>
                 </fieldset>
             </div>
