@@ -27,7 +27,6 @@ const SignInForm = () => {
                 const { token } = res.data;
                 const tokenBase64 = btoa(token);
                 Cookies.set('token', tokenBase64, { expires: 1 })
-                // const user = jwt_decode(token)
                 router.push('/')
             }
         }
