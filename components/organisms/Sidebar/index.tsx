@@ -1,12 +1,22 @@
 import FooterSidebar from './FooterSidebar'
 import Profile from './Profile'
 import ItemMenu from './ItemMenu'
+import Cookies from 'js-cookie'
+import { useRouter } from 'next/router'
 
 interface SidebarProps{
     activeMenu: string;
 }
 
 const Sidebar = ({activeMenu}:SidebarProps) => {
+
+    const router = useRouter()
+
+    const pnLogout = () => {
+        Cookies.remove('token')
+        router.push('/sign-in')
+    }
+
     return (
         <section className="w-1/4">
             <div className="relative h-screen overflow-y-auto hide-scroll-bar pt-14 pb-8 px-8">
@@ -18,7 +28,7 @@ const Sidebar = ({activeMenu}:SidebarProps) => {
                     <ItemMenu icon={'card'} title={'Card'} link={'/member'}/>
                     <ItemMenu icon={'rewards'} title={'Rewards'} link={'/member'}/>
                     <ItemMenu icon={'settings'} title={'Settings'} link={'/member/edit-profile'} active={activeMenu === 'edit-profile'}/>
-                    <ItemMenu icon={'logout'} title={'Log Out'} link={'/member'}/>
+                    <ItemMenu icon={'logout'} title={'Log Out'} onClick={() => pnLogout()}/>
                 </div>
                 <FooterSidebar/>
             </div>

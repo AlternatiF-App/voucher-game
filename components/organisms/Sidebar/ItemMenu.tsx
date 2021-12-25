@@ -4,20 +4,27 @@ interface ItemMenuProps{
     active?: boolean;
     icon: string;
     title: string;
-    link: string;
+    link?: string;
+    onClick?: () => void;
 }
 
-const ItemMenu = ({active, icon, title, link}:ItemMenuProps) => {
+const ItemMenu = ({active, icon, title, link, onClick}:ItemMenuProps) => {
 
     return (
         <div className={`${active && 'active'} h-full flex items-center space-x-4 relative pb-6 item`}>
             <img src={`/icon/ic-menu-${icon}.svg`}/>
             <p className="m-0">
-                <Link href={link}>
-                    <a className="text-lg">
+                {
+                    onClick
+                    ? <a onClick={onClick} className="text-lg cursor-pointer">
                         {title}
-                    </a>
-                </Link>
+                    </a> 
+                    : <Link href={link}>
+                        <a className="text-lg cursor-pointer">
+                            {title}
+                        </a>
+                    </Link>
+                }
             </p>
         </div>
     )

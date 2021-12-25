@@ -1,7 +1,35 @@
-import React from 'react'
+import { useCallback, useEffect, useState } from 'react'
+import { getMemberTransactions } from '../../../services/member'
+import { toast } from 'react-toastify'
 import TableRow from '../OverviewContent/TableRow'
+import NumberFormat from 'react-number-format'
+import { HistoryTransactionTypes } from '../../../services/data-types'
 
 const TransactionContent = () => {
+
+    const [data, setData] = useState([])
+    const [total, setTotal] = useState(0)
+    const [tab, setTab] = useState('all')
+
+    const getMemberTransaction = useCallback(async (value) => {
+        const res = await getMemberTransactions(value)
+        if(res.error){
+            toast.error(res.message)
+        }else{
+            setTotal(res.data.total)
+            setData(res.data.data)
+        }
+    }, [])
+
+    useEffect(() => {
+        getMemberTransaction('all')
+    }, [])
+
+    const onTabClick = (value: string) => {
+        setTab(value)
+        getMemberTransaction(value)
+    }
+
     return (
         <main className="w-3/4 h-screen overflow-y-auto hide-scroll-bar relative py-14">
             <div>
@@ -11,23 +39,23 @@ const TransactionContent = () => {
                         You’ve spent
                     </p>
                     <h3 className="text-5xl font-medium text-blue-800">
-                        Rp 4.518.000.500
+                        <NumberFormat value={total} prefix="Rp. " displayType='text' thousandSeparator="." decimalSeparator="," />
                     </h3>
                 </div>
                 <div className="row mt-8 mb-6">
                     <div className="flex space-x-6 items-center">
-                        <a data-filter="*" href="#" className="px-8 py-2 rounded-full text-sm bg-blue-600 text-white">
+                        <button onClick={() => onTabClick('all')} className={`${tab === 'all' ? ('bg-blue-600 text-white') : 'bg-gray-200'} px-8 py-2 rounded-full text-sm`}>
                             All Trx
-                        </a>
-                        <a data-filter="success" href="#" className="px-8 py-2 rounded-full text-sm bg-gray-200">
+                        </button>
+                        <button onClick={() => onTabClick('Success')}className={`${tab === 'Success' ? ('bg-blue-600 text-white') : 'bg-gray-200'} px-8 py-2 rounded-full text-sm`}>
                             Success
-                        </a>
-                        <a data-filter="pending" href="#" className="px-8 py-2 rounded-full text-sm bg-gray-200">
+                        </button>
+                        <button onClick={() => onTabClick('Pending')}className={`${tab === 'Pending' ? ('bg-blue-600 text-white') : 'bg-gray-200'} px-8 py-2 rounded-full text-sm`}>
                             Pending
-                        </a>
-                        <a data-filter="failed" href="#" className="px-8 py-2 rounded-full text-sm bg-gray-200">
+                        </button>
+                        <button onClick={() => onTabClick('Failed')}className={`${tab === 'Failed' ? ('bg-blue-600 text-white') : 'bg-gray-200'} px-8 py-2 rounded-full text-sm`}>
                             Failed
-                        </a>
+                        </button>
                     </div>
                 </div>
                 <div>
@@ -44,42 +72,22 @@ const TransactionContent = () => {
                                 </tr>
                             </thead>
                             <tbody>
-                                <TableRow 
-                                    title={'Mobile Legends:The New Battle 2021'}
-                                    category={'Desktop'}
-                                    item={200}
-                                    nominal={'290.000'}
-                                    status={'Pending'}
-                                    image={'overview-1'}
-                                    page={'transactions'}
-                                />
-                                <TableRow 
-                                    title={'Call of Duty:Modern'}
-                                    category={'Desktop'}
-                                    item={550}
-                                    nominal={'740.000'}
-                                    status={'Success'}
-                                    image={'overview-2'}
-                                    page={'transactions'}
-                                />
-                                <TableRow 
-                                    title={'Clash of Clans'}
-                                    category={'Mobile'}
-                                    item={100}
-                                    nominal={'120.000'}
-                                    status={'Failed'}
-                                    image={'overview-3'}
-                                    page={'transactions'}
-                                />
-                                <TableRow 
-                                    title={'The Royal Game'}
-                                    category={'Mobile'}
-                                    item={225}
-                                    nominal={'200.000'}
-                                    status={'Pending'}
-                                    image={'overview-4'}
-                                    page={'transactions'}
-                                />
+                                {
+                                    data.map((item:HistoryTransactionTypes) => {
+                                        return(
+                                            <TableRow 
+                                                key={item._id}
+                                                title={item.historyVoucherTopup.gameName}
+                                                category={item.historyVoucherTopup.category}
+                                                item={item.historyVoucherTopup.coinQuantity}
+                                                nominal={item.historyVoucherTopup.price}
+                                                status={item.status}
+                                                image={item.historyVoucherTopup.thumbnail}
+                                                page={'transactions'}
+                                            />
+                                        )
+                                    })
+                                }
                             </tbody>
                         </table>
                     </div>
