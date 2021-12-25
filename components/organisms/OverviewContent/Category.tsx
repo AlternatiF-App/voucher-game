@@ -1,20 +1,20 @@
 import Image from 'next/image'
+import NumberFormat from 'react-number-format'
 
 interface CategoryProps{
     icon: string;
-    title1: string;
-    title2: string;
-    total:string;
+    name: string;
+    value:number;
 }
 
-const Category = ({icon, title1, title2, total}:CategoryProps) => {
+const Category = ({icon, name, value}:CategoryProps) => {
     return (
         <div className="px-2 pb-1 lg:pb-0">
             <div className="p-8">
                 <div className="flex space-x-4 items-center mb-6">
                     <Image src={`/icon/ic-${icon}.svg`} width={60} height={60}/>
                     <p className="text-blue-800 mb-0">
-                        {title1}<br/> {title2}
+                        Category<br/> {name}
                     </p>
                 </div>
                 <div>
@@ -22,7 +22,7 @@ const Category = ({icon, title1, title2, total}:CategoryProps) => {
                         Total Spent
                     </p>
                     <p className="text-2xl text-blue-800 font-medium m-0">
-                        Rp {total}
+                        <NumberFormat value={value} prefix="Rp. " displayType='text' thousandSeparator="." decimalSeparator="," />
                     </p>
                 </div>
             </div>

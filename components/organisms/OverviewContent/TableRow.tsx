@@ -1,8 +1,10 @@
+import NumberFormat from 'react-number-format'
+
 interface TableRowProps{
     title: string;
     category: string;
-    item:number;
-    nominal:string;
+    item:string;
+    nominal:number;
     status:string;
     image:string;
     page?:string;
@@ -12,8 +14,8 @@ const TableRow = ({title, category, item, nominal, status, image, page}:TableRow
     return (
         <tr>
             <th scope="flex items-center">
-                <img className="float-left lg:mb-0 mb-3 mr-3" src={`/img/${image}.png`}
-                    width="80" height="60" alt=""/>
+                <img className="float-left h-14 w-20 object-cover rounded-xl lg:mb-0 mb-3 mr-3"
+                    src={`https://voucher-game-server.herokuapp.com/uploads/${image}`} alt=""/>
                 <div className="my-3">
                     <p className="font-medium text-left text-blue-800 m-0">
                         {title}
@@ -30,7 +32,7 @@ const TableRow = ({title, category, item, nominal, status, image, page}:TableRow
             </td>
             <td>
                 <p className="font-medium text-left text-blue-800 m-0">
-                    Rp {nominal}
+                    <NumberFormat value={nominal} prefix="Rp. " displayType='text' thousandSeparator="." decimalSeparator="," />
                 </p>
             </td>
             <td>

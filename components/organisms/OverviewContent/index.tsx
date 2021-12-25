@@ -1,7 +1,29 @@
 import Category from './Category'
 import TableRow from './TableRow'
+import { useCallback, useEffect, useState } from 'react'
+import { getMemberOverview } from '../../../services/player'
+import {toast} from 'react-toastify'
+import { HistoryTransactionTypes, TopUpCategoryTypes } from '../../../services/data-types'
 
 const OverviewContent = () => {
+
+    const [count, setCount] = useState([])
+    const [data, setData] = useState([])
+
+    const getMemberOverviewAPI = useCallback(async () => {
+        const res = await getMemberOverview()
+        if(res.error){
+            toast.error(res.message)
+        }else{
+            setCount(res.data.count)
+            setData(res.data.data)
+        }
+    }, [])
+
+    useEffect(() => {
+        getMemberOverviewAPI()
+    }, [])
+
     return (
         <main className="w-3/4 h-screen overflow-y-auto hide-scroll-bar relative py-14">
             <div className="w-full">
@@ -12,10 +34,19 @@ const OverviewContent = () => {
                     <p className="text-lg font-medium text-blue-800 mb-3">
                         Top Up Categories
                     </p>
-                    <div className="flex justify-between">
-                        <Category icon={'desktop'} title1={'Game'} title2={'Desktop'} total={'18.000.500'}/>
-                        <Category icon={'mobile'} title1={'Game'} title2={'Mobile'} total={'8.455.000'}/>
-                        <Category icon={'other'} title1={'Other'} title2={'Categories'} total={'5.000.000'}/>
+                    <div className="flex space-x-10">
+                        {
+                            count.map((item:TopUpCategoryTypes) => {
+                                return(
+                                    <Category 
+                                        key={item._id}
+                                        icon={'desktop'}
+                                        name={item.name}
+                                        value={item.value}
+                                    />
+                                )
+                            })
+                        }
                     </div>
                 </div>
                 <div className="py-2 px-4">
@@ -31,38 +62,21 @@ const OverviewContent = () => {
                                 </tr>
                             </thead>
                             <tbody>
-                                <TableRow 
-                                    title={'Mobile Legends:The New Battle 2021'}
-                                    category={'Desktop'}
-                                    item={200}
-                                    nominal={'290.000'}
-                                    status={'Pending'}
-                                    image={'overview-1'}
-                                />
-                                <TableRow 
-                                    title={'Call of Duty:Modern'}
-                                    category={'Desktop'}
-                                    item={550}
-                                    nominal={'740.000'}
-                                    status={'Success'}
-                                    image={'overview-2'}
-                                />
-                                <TableRow 
-                                    title={'Clash of Clans'}
-                                    category={'Mobile'}
-                                    item={100}
-                                    nominal={'120.000'}
-                                    status={'Failed'}
-                                    image={'overview-3'}
-                                />
-                                <TableRow 
-                                    title={'The Royal Game'}
-                                    category={'Mobile'}
-                                    item={225}
-                                    nominal={'200.000'}
-                                    status={'Pending'}
-                                    image={'overview-4'}
-                                />
+                                {
+                                    data.map((item:HistoryTransactionTypes) => {
+                                        return(
+                                            <TableRow 
+                                                key={item._id}
+                                                title={item.historyVoucherTopup.gameName}
+                                                category={item.historyVoucherTopup.category}
+                                                item={item.historyVoucherTopup.coinQuantity}
+                                                nominal={item.historyVoucherTopup.price}
+                                                status={item.status}
+                                                image={item.historyVoucherTopup.thumbnail}
+                                            />
+                                        )
+                                    })
+                                }
                             </tbody>
                         </table>
                     </div>
