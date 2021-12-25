@@ -22,6 +22,7 @@ const Detail = () => {
     const getVoucherDetailAPI = useCallback(async (id) => {
         const data = await getDetailVoucher(id)
         setDataItem(data)
+        localStorage.setItem('data-item', JSON.stringify(data))
         setNominals(data.nominals)
     }, [])
 

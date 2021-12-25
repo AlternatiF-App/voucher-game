@@ -115,7 +115,7 @@ const SignUpSuccess = () => {
                             dan menjadi pemenang!</p>
                     </div>
                     <div className="flex justify-center mx-auto">
-                        <Link href='/'>
+                        <Link href='/sign-in'>
                             <button className="px-8 py-2 font-medium text-lg bg-blue-600 text-white rounded-full">
                                 Top Up
                             </button>

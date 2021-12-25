@@ -1,4 +1,6 @@
 import axios from 'axios'
+import callAPI from '../config'
+import { CheckoutTypes } from './data-types'
 
 const ROOT_API = 'https://voucher-game-server.herokuapp.com/'
 const API_VERSION = 'api/v1'
@@ -25,4 +27,15 @@ export async function getGameCategory(){
     const res = await axios.get(`${ROOT_API}${API_VERSION}/players/category`)
     const axiosRes = res.data
     return axiosRes.data
+}
+
+export async function setCheckout(data:CheckoutTypes){
+    const url = `${ROOT_API}${API_VERSION}/players/checkout`
+    
+    return callAPI({
+        url,
+        method: 'POST',
+        data,
+        token: true
+    })
 }
