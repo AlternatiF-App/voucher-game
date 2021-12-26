@@ -71,9 +71,20 @@ export interface historyVoucherTopup {
     thumbnail: string
 }
 
+export interface HistoryPaymentTypes {
+    nameBank: string,
+    name:string,
+    accountNumber: string,
+    type: string
+}
+
 export interface HistoryTransactionTypes {
     _id: string,
     historyVoucherTopup: historyVoucherTopup,
     value: number,
-    status: string
+    status: string,
+    accountUser: string,
+    tax:number,
+    name: string,
+    historyPayment: HistoryPaymentTypes
 }

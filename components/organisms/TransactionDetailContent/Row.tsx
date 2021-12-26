@@ -1,13 +1,22 @@
+import NumberFormat from 'react-number-format'
+
 interface RowProps{
     label: string;
-    value: string;
+    value: string | number;
     className?: string;
 }
 
 const Row = ({label, value, className}:RowProps) => {
     return (
-        <p className="text-lg color-palette-1 mb-20">
-            {label} <span className={`purchase-details ${className}`}>{value}</span>
+        <p className="text-lg text-blue-500 mb-6">
+            {label} 
+            <span className={`float-right ${className}`}>
+                {
+                    typeof value === 'string' 
+                        ? value
+                        : (<NumberFormat value={value} prefix="Rp. " displayType='text' thousandSeparator="." decimalSeparator="," />)
+                }
+            </span>
         </p>
     )
 }

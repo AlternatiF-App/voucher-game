@@ -77,6 +77,7 @@ const TransactionContent = () => {
                                         return(
                                             <TableRow 
                                                 key={item._id}
+                                                id={item._id}
                                                 title={item.historyVoucherTopup.gameName}
                                                 category={item.historyVoucherTopup.category}
                                                 item={item.historyVoucherTopup.coinQuantity}

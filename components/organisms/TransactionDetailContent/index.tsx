@@ -1,96 +1,116 @@
+import { HistoryTransactionTypes } from '../../../services/data-types'
 import Row from './Row'
 
-const TransactionDetailContent = () => {
+interface TransactionDetailContentProps{
+    data: HistoryTransactionTypes
+}
+
+const TransactionDetailContent = ({data}:TransactionDetailContentProps) => {
+
     return (
-        <main className="main-wrapper">
-            <div className="ps-lg-0">
-                <h2 className="text-4xl fw-bold color-palette-1 mb-30">
-                    Details #GG001
+        <main className="w-3/4 h-screen overflow-y-auto hide-scroll-bar relative py-14 px-24">
+            <div className="lg:pl-0">
+                <h2 className="text-4xl font-bold text-blue-600 mb-8">
+                    Details #{data._id}
                 </h2>
-                <div className="details">
-                    <div className="main-content main-content-card overflow-auto">
-                        <section className="checkout mx-auto">
-                            <div className="d-flex flex-row  align-items-center justify-content-between mb-30">
-                                <div className="game-checkout d-flex flex-row align-items-center">
-                                    <div className="pe-4">
-                                        <div className="cropped">
-                                            <img src="/img/Thumbnail-3.png" width="200" height="130"
-                                                className="img-fluid" alt=""/>
+                <div>
+                    <div className="bg-white p-8 rounded-2xl overflow-auto">
+                        <section className="">
+                            <div className="flex flex-row items-center justify-between mb-8">
+                                <div className="flex flex-row items-center">
+                                    <div className="pr-4">
+                                        <div className="w-48 h-28">
+                                            <img src={`https://voucher-game-server.herokuapp.com/uploads/${data.historyVoucherTopup.thumbnail}`}
+                                                className="h-28 w-48 object-cover rounded-2xl" alt=""/>
                                         </div>
                                     </div>
                                     <div>
-                                        <p className="fw-bold text-xl color-palette-1 mb-10">
-                                            Mobile Legends:<br/> The New Battle 2021
+                                        <p className="font-bold text-xl text-blue-600 mb-10">
+                                            {data.historyVoucherTopup.gameName}
                                         </p>
-                                        <p className="color-palette-2 m-0">
-                                            Category: Mobile
+                                        <p className="text-blue-400 m-0">
+                                            Category: {data.historyVoucherTopup.category}
                                         </p>
                                     </div>
                                 </div>
                                 <div>
-                                    <p className="fw-medium text-center label pending m-0 rounded-pill">
-                                        Pending
-                                    </p>
+                                    {
+                                        data.status === 'Pending' && <p className="bg-yellow-200 font-medium text-center px-8 py-2 rounded-full">
+                                            {data.status}
+                                        </p>
+                                    }
+                                    {
+                                        data.status === 'Success' && <p className="bg-green-200 font-medium text-center px-8 py-2 rounded-full">
+                                            {data.status}
+                                        </p>
+                                    }
+                                    {
+                                        data.status === 'Failed' && <p className="bg-red-200 font-medium text-center px-8 py-2 rounded-full">
+                                            {data.status}
+                                        </p>
+                                    }
                                 </div>
                             </div>
                             <hr/>
-                            <div className="purchase pt-30">
-                                <h2 className="fw-bold text-xl color-palette-1 mb-20">
+                            <div className="purchase pt-8">
+                                <h2 className="font-bold text-xl text-blue-600 mb-6">
                                     Purchase Details
                                 </h2>
                                 <Row 
                                     label={'Your Game ID'}
-                                    value={'masayoshizero'}
+                                    value={data.accountUser}
                                 />
                                 <Row 
                                     label={'Order ID'}
-                                    value={'#GG001'}
+                                    value={`#${data._id}`}
                                 />
                                 <Row 
                                     label={'Item'}
-                                    value={'250 Diamonds'}
+                                    value={data.historyVoucherTopup.coinQuantity + ' ' + data.historyVoucherTopup.coinName}
                                 />
                                 <Row 
                                     label={'Price'}
-                                    value={'Rp 42.280.500'}
+                                    value={data.historyVoucherTopup.price}
                                 />
                                 <Row 
                                     label={'Tax (10%)'}
-                                    value={'Rp 4.228.000'}
+                                    value={data.tax}
                                 />
                                 <Row 
                                     label={'Total'}
-                                    value={'Rp 55.000.600'}
-                                    className={'color-palette-4'}
+                                    value={data.value}
+                                    className={'text-blue-800'}
                                 />
                             </div>
-                            <div className="payment pt-10 pb-10">
-                                <h2 className="fw-bold text-xl color-palette-1 mb-20">
+                            <div className="payment py-3">
+                                <h2 className="font-bold text-xl text-blue-600 mb-6">
                                     Payment Informations
                                 </h2>
                                 <Row 
                                     label={'Your Account Name'}
-                                    value={'Masayoshi'}
+                                    value={data.name}
                                 />
                                 <Row 
                                     label={'Type'}
-                                    value={'Worldwide Transfer'}
+                                    value={data.historyPayment.type}
                                 />
                                 <Row 
                                     label={'Bank Name'}
-                                    value={'Mandiri'}
+                                    value={data.historyPayment.nameBank}
                                 />
                                 <Row 
                                     label={'Bank Account Name'}
-                                    value={'PT Store GG Indonesia'}
+                                    value={data.historyPayment.name}
                                 />
                                 <Row 
                                     label={'Bank Number'}
-                                    value={'1800 - 9090 - 2021'}
+                                    value={data.historyPayment.accountNumber}
                                 />
                             </div>
-                            <div className="d-md-block d-flex flex-column w-100">
-                                <a className="btn btn-whatsapp rounded-pill fw-medium text-white border-0 text-lg" href="#" role="button">
+                            <div className="md:block flex flex-col w-full">
+                                <a className="rounded-full px-6 py-2 bg-blue-600 font-medium text-white border-0 text-lg" role="button"
+                                    href="https://wa.me/6282142931584?text=Saya%20sudah%20melakukan%20pembayaran"
+                                >
                                     WhatsApp ke Admin
                                 </a>
                             </div>

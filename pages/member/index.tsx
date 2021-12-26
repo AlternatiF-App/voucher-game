@@ -1,6 +1,5 @@
 import OverviewContent from "../../components/organisms/OverviewContent"
 import Sidebar from "../../components/organisms/Sidebar"
-import jwtDecode from 'jwt-decode'
 
 const Member = () => {
     return (
@@ -21,15 +20,8 @@ export async function getServerSideProps({req}:any){
             }
         }
     }
-
-    const jwt_token = Buffer.from(token, 'base64').toString('ascii');
-    const payload:any = jwtDecode(jwt_token)
-    const userPayload = payload.player
-
     return {
-        props : {
-            user: userPayload
-        }
+        props : {}
     }
 }
 

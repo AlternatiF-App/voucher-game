@@ -1,6 +1,8 @@
 import NumberFormat from 'react-number-format'
+import Link from 'next/link'
 
 interface TableRowProps{
+    id: string;
     title: string;
     category: string;
     item:string;
@@ -10,7 +12,7 @@ interface TableRowProps{
     page?:string;
 }
 
-const TableRow = ({title, category, item, nominal, status, image, page}:TableRowProps) => {
+const TableRow = ({id, title, category, item, nominal, status, image, page}:TableRowProps) => {
     return (
         <tr>
             <th scope="flex items-center">
@@ -47,8 +49,11 @@ const TableRow = ({title, category, item, nominal, status, image, page}:TableRow
             </td>
             {
                 page === 'transactions' && <td>
-                    <a href="../member/transactions-detail.html"
-                        className="px-4 py-2 bg-gray-200 rounded-full text-sm">Details</a>
+                    <Link href={`/member/transactions/${id}`}>
+                        <a href=""
+                            className="px-4 py-2 bg-gray-200 rounded-full text-sm">Details
+                        </a>
+                    </Link>
                 </td>
             }
         </tr>
