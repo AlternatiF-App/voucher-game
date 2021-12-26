@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import Menu from './menu'
 import Auth from './auth'
 import {MenuIcon} from '@heroicons/react/outline'
@@ -9,11 +8,11 @@ const Navbar = () => {
     const [menuItem, setMenuItem] = useState(false)
 
     return (
-        <div className="w-full lg:w-11/12 lg:mx-auto px-4 py-10 bg-white">
+        <div className="w-full lg:w-11/12 lg:mx-auto px-4 py-2 lg:py-6 bg-white">
             <div>
                 <div className="flex justify-between items-center">
                     <div>
-                        <Image src="/icon/logo.svg" width={60} height={60}/>
+                        <img src="/icon/logo.svg" className="h-10 w-10"/>
                     </div>
                     <MenuIcon 
                         onClick={() => menuItem ? setMenuItem(false) : setMenuItem(true)}
@@ -34,8 +33,8 @@ const Navbar = () => {
                 </div>
             </div>
             { menuItem &&
-            <div className="relative w-1/2 pt-1 pb-2 float-right rounded-lg">
-                <ul className="absolute bg-white z-50">
+            <div className="relative w-40 pt-1 pb-2 float-right rounded-lg">
+                <ul className="absolute bg-white w-full right-0 z-50">
                     <Menu title={"Home"} href="/" active/>
                     <Menu title={"Games"} href="/games"/>
                     <Menu title={"Rewards"} href="/"/>

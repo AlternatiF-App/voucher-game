@@ -40,7 +40,7 @@ const Auth = () => {
                     <a onClick={() => (dropdown === false ? setDropdown(true) : setDropdown(false))}>
                         <img src={`https://voucher-game-server.herokuapp.com/uploads/${user.avatar}`} className="hidden lg:block cursor-pointer w-10 h-10 object-cover rounded-full" alt=""/>
                     </a>
-                    <div>
+                    <div className="block lg:hidden">
                         <ul>
                             <li onClick={() => (dropdownMobile === false ? setDropdownMobile(true) : setDropdownMobile(false))}
                                 className="font-bold text-blue-200">
