@@ -21,16 +21,20 @@ const Profile = () => {
     }, [])
 
     return (
-        <div className="text-center pb-14 pr-8">
-            <img src={`https://voucher-game-server.herokuapp.com/uploads/${user.avatar}`}
-                className="mx-auto mb-6 h-24 w-24 rounded-full object-cover" 
-            />
-            <h2 className="font-bold text-xl text-blue-800 m-0">
-                {user.name}
-            </h2>
-            <p className="text-blue-600 m-0">
-                {user.email}
-            </p>
+        <div className="flex space-x-4 lg:block lg:text-center pb-4 lg:pb-14 lg:pr-8">
+            <div>
+                <img src={`https://voucher-game-server.herokuapp.com/uploads/${user.avatar}`}
+                    className="mx-auto mb-6 h-12 w-12 lg:h-24 lg:w-24 rounded-full object-cover" 
+                />
+            </div>
+            <div>
+                <h2 className="font-bold text-xl text-blue-800 m-0">
+                    {user.name}
+                </h2>
+                <p className="text-blue-600 m-0">
+                    {user.email}
+                </p>
+            </div>
         </div>
     )
 }

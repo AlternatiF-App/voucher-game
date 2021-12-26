@@ -11,9 +11,9 @@ interface ItemMenuProps{
 const ItemMenu = ({active, icon, title, link, onClick}:ItemMenuProps) => {
 
     return (
-        <div className={`${active && 'active'} h-full flex items-center space-x-4 relative pb-6 item`}>
+        <div className={`${active && 'active'} h-10 lg:h-full flex items-center space-x-4 relative lg:pb-6 item`}>
             <img src={`/icon/ic-menu-${icon}.svg`}/>
-            <p className="m-0">
+            <p>
                 {
                     onClick
                     ? <a onClick={onClick} className="text-lg cursor-pointer">
