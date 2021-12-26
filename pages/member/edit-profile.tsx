@@ -47,73 +47,75 @@ const EditProfile = () => {
 
     return (
         <>
-            <section className="w-full flex overflow-auto">
+            <section className="w-full lg:flex overflow-auto">
                 <Sidebar activeMenu={'edit-profile'}/>
-                <main className="w-3/4 h-screen overflow-y-auto hide-scroll-bar relative py-14">
+                <main className="w-full lg:w-3/4 h-screen overflow-y-auto hide-scroll-bar relative px-4 py-4 lg:px-0 lg:py-14">
                     <div className="lg:pl-0">
-                        <h2 className="text-4xl font-bold text-blue-800 mb-8">Settings</h2>
-                        <div className="rounded-2xl max-w-xl p-8">
-                            <form action="">
-                                <div className="flex">
-                                    <div>
-                                        <label id="avatar" className="cursor-pointer">
-                                            {
-                                                imagePreview === '/' ?
-                                                (
+                        <h2 className="text-xl lg:text-4xl font-bold text-blue-800 mb-8">Settings</h2>
+                        <div className="rounded-2xl max-w-xl lg:p-8">
+                            <div className="flex">
+                                <div className="w-full">
+                                    <label id="avatar" className="cursor-pointer">
+                                        {
+                                            imagePreview === '/' ?
+                                            (
+                                                <div className="flex justify-center">
                                                     <img className="h-24 w-24 object-cover rounded-full"
                                                         src={`https://voucher-game-server.herokuapp.com/uploads/${(user.avatar)}`}
                                                     />
-                                                )
-                                                : (
+                                                </div>
+                                            )
+                                            : (
+                                                <div className="flex justify-center">
                                                     <img className="h-24 w-24 object-cover rounded-full"
                                                         src={imagePreview}
                                                     />
-                                                )
-                                            }
-                                            <input className="invisible w-0 h-0" id="avatar" type="file" name="avatar" accept="image/png, image/jpeg" 
-                                                onChange={(e:any) => {
-                                                    const img:any = e.target.files[0]
-                                                    setImagePreview(URL.createObjectURL(img))
-                                                    setUser({
-                                                        ...user,
-                                                        avatar:img
-                                                    })
-                                                }}
-                                            />
-                                        </label>
-                                    </div>
+                                                </div>
+                                            )
+                                        }
+                                        <input className="invisible w-0 h-0" id="avatar" type="file" name="avatar" accept="image/png, image/jpeg" 
+                                            onChange={(e:any) => {
+                                                const img:any = e.target.files[0]
+                                                setImagePreview(URL.createObjectURL(img))
+                                                setUser({
+                                                    ...user,
+                                                    avatar:img
+                                                })
+                                            }}
+                                        />
+                                    </label>
                                 </div>
-                                <div className="pt-8">
-                                    <Input 
-                                        label={'Full Name'}
-                                        value={user.name} 
-                                        onChange={(e:any) => setUser({
-                                            ...user,
-                                            name: e.target.value
-                                        })}
-                                    />
-                                </div>
-                                <div className="pt-8">
-                                    <Input label={'Email Address'} value={user.email} disabled/>
-                                </div>
-                                <div className="pt-8">
-                                    <Input 
-                                        label={'Phone Number'}
-                                        value={user.phoneNumber} 
-                                        onChange={(e:any) => setUser({
-                                            ...user,
-                                            phoneNumber: e.target.value
-                                        })}
-                                    />
-                                </div>
-                                <div className="flex flex-col pt-14">
-                                    <button type="button" className="px-8 py-2 font-medium text-lg bg-blue-600 text-white rounded-full"
-                                        onClick={onSubmit}    
-                                    >
-                                            Save My Profile
-                                    </button>
-                                </div>
-                            </form>
+                            </div>
+                            <div className="pt-4 lg:pt-8">
+                                <Input 
+                                    label={'Full Name'}
+                                    value={user.name} 
+                                    onChange={(e:any) => setUser({
+                                        ...user,
+                                        name: e.target.value
+                                    })}
+                                />
+                            </div>
+                            <div className="pt-4 lg:pt-8">
+                                <Input label={'Email Address'} value={user.email} disabled/>
+                            </div>
+                            <div className="pt-4 lg:pt-8">
+                                <Input 
+                                    label={'Phone Number'}
+                                    value={user.phoneNumber} 
+                                    onChange={(e:any) => setUser({
+                                        ...user,
+                                        phoneNumber: e.target.value
+                                    })}
+                                />
+                            </div>
+                            <div className="flex flex-col pt-8 lg:pt-14">
+                                <button type="button" className="px-8 py-2 font-medium text-lg bg-blue-600 text-white rounded-full"
+                                    onClick={onSubmit}    
+                                >
+                                        Save My Profile
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </main>
