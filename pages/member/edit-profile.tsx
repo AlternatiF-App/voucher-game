@@ -59,14 +59,14 @@ const EditProfile = () => {
                                         {
                                             imagePreview === '/' ?
                                             (
-                                                <div className="flex justify-center">
+                                                <div className="flex lg:justify-start justify-center">
                                                     <img className="h-24 w-24 object-cover rounded-full"
                                                         src={`https://voucher-game-server.herokuapp.com/uploads/${(user.avatar)}`}
                                                     />
                                                 </div>
                                             )
                                             : (
-                                                <div className="flex justify-center">
+                                                <div className="flex lg:justify-start justify-center">
                                                     <img className="h-24 w-24 object-cover rounded-full"
                                                         src={imagePreview}
                                                     />
