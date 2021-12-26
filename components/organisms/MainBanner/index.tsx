@@ -2,7 +2,7 @@ import Illustrations from './Illustrations'
 
 const MainBanner = () => {
     return (
-        <section className="lg:container lg:mx-auto px-4 lg:px-0 lg:pt-14 pt-16 lg:pb-0 pb-10">
+        <section className="lg:container lg:mx-auto px-4 lg:px-0 lg:pt-14 pt-8 lg:pb-0 pb-10">
             <div className="">
                 <div className="lg:grid lg:grid-cols-2">
                     <div className="my-auto">

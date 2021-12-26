@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 const Footer = () => {
     return (
-        <section className="w-full lg:w-11/12 lg:mx-auto px-4 py-20 mt-14">
+        <section className="w-full lg:w-11/12 lg:mx-auto px-4 py-6 lg:py-20 mt-14">
             <footer>
                 <div className="container-fluid">
                     <div className="lg:flex">
