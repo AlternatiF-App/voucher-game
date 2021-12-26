@@ -43,7 +43,10 @@ const Auth = () => {
                     <div className="block lg:hidden">
                         <ul>
                             <li onClick={() => (dropdownMobile === false ? setDropdownMobile(true) : setDropdownMobile(false))}
-                                className="font-bold text-blue-200">
+                                className="font-bold text-blue-200 flex">
+                                <div className="pr-2 flex items-center">
+                                    <img src={`https://voucher-game-server.herokuapp.com/uploads/${user.avatar}`} className="w-8 h-8 object-cover rounded-full" alt=""/>
+                                </div>
                                 {user.name}
                             </li>
                             {
@@ -82,9 +85,9 @@ const Auth = () => {
                     }
                 </div>
             </li>   
-            : <li className="nav-item my-auto">
+            : <li className="px-4 py-2">
                 <Link href="/sign-in">
-                    <a className="btn btn-sign-in d-flex justify-content-center ms-lg-2 rounded-pill" role="button">
+                    <a className="px-4 py-2 flex justify-center rounded-full" role="button">
                         Sign In
                     </a>
                 </Link>
