@@ -1,8 +1,51 @@
 import Input from "../../components/atoms/Input"
 import Sidebar from "../../components/organisms/Sidebar"
-import {TrashIcon} from '@heroicons/react/outline'
+// import {TrashIcon} from '@heroicons/react/outline'
+import { useEffect, useState } from "react"
+import Cookies from 'js-cookie'
+import jwtDecode from 'jwt-decode'
+import { toast } from 'react-toastify'
+import { updateProfile } from "../../services/member"
+import { useRouter } from 'next/router'
 
 const EditProfile = () => {
+
+    const [user, setUser] = useState({
+        id:'',
+        name: '',
+        email: '',
+        avatar: '',
+        phoneNumber:''
+    })
+    const [imagePreview, setImagePreview] = useState('/')
+    const router = useRouter()
+
+    useEffect(() => {
+        const token = Cookies.get('token')
+        if(token){
+            const jwt_token = atob(token)
+            const payload:any = jwtDecode(jwt_token)
+            const userPayload = payload.player
+            setUser(userPayload)
+        }
+    }, [])
+
+    const onSubmit = async () => {
+        const data = new FormData()
+
+        data.append('image', user.avatar)
+        data.append('name', user.name)
+        data.append('phoneNumber', user.phoneNumber)
+        const res = await updateProfile(data)
+        if(res.error){
+            toast.error(res.message)
+        }else{
+            console.log('cok', res)
+            Cookies.remove('token')
+            router.push('/sign-in')
+        }
+    }
+
     return (
         <>
             <section className="w-full flex overflow-auto">
@@ -13,32 +56,61 @@ const EditProfile = () => {
                         <div className="rounded-2xl max-w-xl p-8">
                             <form action="">
                                 <div className="flex">
-                                    <div className="relative mr-6">
-                                        <img src="/img/avatar-1.png" width="96" height="96" />
-                                        <div
-                                            className="avatar-overlay absolute w-24 h-24 bg-blue-900 rounded-full opacity-0 hover:opacity-100 cursor-pointer top-0 flex justify-center items-center transition-all duration-300 ease-linear">
-                                            <TrashIcon className="h-5 w-5" fill="none" stroke="currentColor"/>
-                                        </div>
-                                    </div>
                                     <div>
-                                        <label className="cursor-pointer">
-                                            <img src="/icon/upload.svg" width={96} height={96}/>
-                                            <input className="invisible w-0 h-0" id="avatar" type="file" name="avatar" accept="image/png, image/jpeg" />
+                                        <label id="avatar" className="cursor-pointer">
+                                            {
+                                                imagePreview === '/' ?
+                                                (
+                                                    <img className="h-24 w-24 object-cover rounded-full"
+                                                        src={`https://voucher-game-server.herokuapp.com/uploads/${(user.avatar)}`}
+                                                    />
+                                                )
+                                                : (
+                                                    <img className="h-24 w-24 object-cover rounded-full"
+                                                        src={imagePreview}
+                                                    />
+                                                )
+                                            }
+                                            <input className="invisible w-0 h-0" id="avatar" type="file" name="avatar" accept="image/png, image/jpeg" 
+                                                onChange={(e:any) => {
+                                                    const img:any = e.target.files[0]
+                                                    setImagePreview(URL.createObjectURL(img))
+                                                    setUser({
+                                                        ...user,
+                                                        avatar:img
+                                                    })
+                                                }}
+                                            />
                                         </label>
                                     </div>
                                 </div>
                                 <div className="pt-8">
-                                    <Input label={'Full Name'}/>
+                                    <Input 
+                                        label={'Full Name'}
+                                        value={user.name} 
+                                        onChange={(e:any) => setUser({
+                                            ...user,
+                                            name: e.target.value
+                                        })}
+                                    />
                                 </div>
                                 <div className="pt-8">
-                                    <Input label={'Email Address'}/>
+                                    <Input label={'Email Address'} value={user.email} disabled/>
                                 </div>
                                 <div className="pt-8">
-                                    <Input label={'Phone'}/>
+                                    <Input 
+                                        label={'Phone Number'}
+                                        value={user.phoneNumber} 
+                                        onChange={(e:any) => setUser({
+                                            ...user,
+                                            phoneNumber: e.target.value
+                                        })}
+                                    />
                                 </div>
                                 <div className="flex flex-col pt-14">
-                                    <button type="submit" className="px-8 py-2 font-medium text-lg bg-blue-600 text-white rounded-full"
-                                        role="button">
+                                    <button type="button" className="px-8 py-2 font-medium text-lg bg-blue-600 text-white rounded-full"
+                                        onClick={onSubmit}    
+                                    >
                                             Save My Profile
                                     </button>
                                 </div>

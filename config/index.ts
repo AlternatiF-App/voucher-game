@@ -27,7 +27,7 @@ export default async function callAPI({url, method, data, token, serverToken}: C
         method,
         data,
         headers
-    }).catch(error => error.response)
+    }).catch(error => error.res)
     if(res.status > 300){
         const response = {
             error: true,
