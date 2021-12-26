@@ -3,10 +3,10 @@ import Link from 'next/link'
 const SignUpSuccess = () => {
     return (
         <>
-            <section className="w-full lg:w-1/3 lg:container lg:mx-auto md:py-44 pt-36 pb-24">
+            <section className="w-full lg:w-1/3 lg:container lg:mx-auto md:py-44 py-12">
                 <div>
                     <div className="flex justify-center">
-                        <svg className="img-fluid" width="316" height="300" viewBox="0 0 316 300" fill="none"
+                        <svg className="img-fluid h-36 w-48 lg:w-80 lg:h-72" viewBox="0 0 316 300" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
                             <g clip-path="url(#clip0)">
                                 <path
@@ -108,7 +108,7 @@ const SignUpSuccess = () => {
                             </defs>
                         </svg>
                     </div>
-                    <div className="pt-20 md:pb-14 pb-36">
+                    <div className="pt-20 md:pb-14 pb-20">
                         <h2 className="text-4xl font-bold text-center text-blue-800 mb-4">Well Done!</h2>
                         <p className="text-lg text-center text-blue-800 m-0">Kamu sudah bisa melakukan top up<br
                                 className="sm:block hidden"/>
@@ -116,7 +116,7 @@ const SignUpSuccess = () => {
                     </div>
                     <div className="flex justify-center mx-auto">
                         <Link href='/sign-in'>
-                            <button className="px-8 py-2 font-medium text-lg bg-blue-600 text-white rounded-full">
+                            <button className="px-8 py-2 w-full font-medium text-lg bg-blue-600 text-white rounded-full">
                                 Top Up
                             </button>
                         </Link>

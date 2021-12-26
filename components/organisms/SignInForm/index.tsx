@@ -34,13 +34,13 @@ const SignInForm = () => {
 
     return (
         <>
-            <h2 className="text-4xl font-bold text-blue-800 mb-2">
+            <h2 className="text-xl lg:text-4xl font-bold text-blue-800 mb-2">
                 Sign In
             </h2>
-            <p className="text-lg text-blue-800 m-0">
+            <p className="text-base lg:text-lg text-blue-800 m-0">
                 Masuk untuk melakukan proses top up
             </p>
-            <div className="pt-14">
+            <div className="pt-6 lg:pt-14">
                 <p className="text-lg font-medium text-blue-800 mb-2">
                     Email Address
                 </p>
@@ -53,7 +53,7 @@ const SignInForm = () => {
                     onChange={(e:any) => setEmail(e.target.value)}
                 />
             </div>
-            <div className="pt-8">
+            <div className="pt-6 lg:pt-14">
                 <p className="text-lg font-medium text-blue-800 mb-2">
                     Password
                 </p>
@@ -66,16 +66,16 @@ const SignInForm = () => {
                     onChange={(e:any) => setPassword(e.target.value)}
                 />
             </div>
-            <div className="flex flex-col items-center mx-auto pt-14">
-                <button className="w-1/2 text-center px-8 py-2 font-medium text-lg bg-blue-600 text-white rounded-full mb-4"
+            <div className="lg:flex items-center lg:mx-auto pt-14">
+                <button className="w-full lg:w-1/2 text-center px-8 py-2 font-medium text-lg bg-blue-600 text-white rounded-full mb-4"
                     type="button"
                     onClick={onSubmit}>
                     Continue to Sign In
                 </button>
                 <Link href="/sign-up">
-                <button className="w-1/2 text-center px-8 py-2 font-medium text-lg text-blue-600 text-gray-200 rounded-full mb-4">
-                    Sign Up
-                </button>
+                    <button className="w-full lg:w-1/2 mt-4 lg:mt-0 text-center px-8 py-2 font-medium text-lg text-blue-600 text-gray-200 rounded-full mb-4">
+                        Sign Up
+                    </button>
                 </Link>
             </div>
         </>

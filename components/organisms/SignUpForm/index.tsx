@@ -20,14 +20,14 @@ const SignUpForm = () => {
 
     return (
         <>
-            <h2 className="text-4xl font-bold text-blue-800 mb-4">
+            <h2 className="text-xl lg:text-4xl font-bold text-blue-800 mb-1 lg:mb-4">
                 Sign Up
             </h2>
-            <p className="text-lg text-blue-800 m-0">
+            <p className="text-base lg:text-lg text-blue-800 m-0">
                 Daftar dan bergabung dengan kami
             </p>
-            <div className="pt-14">
-                <p className="form-label text-lg fw-medium color-palette-1 mb-10">
+            <div className="pt-6 lg:pt-14">
+                <p className="form-label text-lg font-medium text-blue-600 mb-2 lg:mb-10">
                     Full Name
                 </p>
                 <input className="w-full px-8 py-2 border border-solid focus-within:border-blue-800 focus-within:text-blue-800 outline-none text-white rounded-full text-lg"
@@ -37,8 +37,8 @@ const SignUpForm = () => {
                     onChange={(e:any) => setName(e.target.value)}
                 />
             </div>
-            <div className="pt-8">
-                <p className="form-label text-lg fw-medium color-palette-1 mb-10">
+            <div className="pt-2 lg:pt-8">
+                <p className="form-label text-lg font-medium text-blue-600 mb-2 lg:mb-10">
                     Email Address
                 </p>
                 <input className="w-full px-8 py-2 border border-solid focus-within:border-blue-800 focus-within:text-blue-800 outline-none text-white rounded-full text-lg"
@@ -48,8 +48,8 @@ const SignUpForm = () => {
                     onChange={(e:any) => setEmail(e.target.value)}
                 />
             </div>
-            <div className="pt-30">
-                <p className="form-label text-lg fw-medium color-palette-1 mb-10">
+            <div className="pt-2 lg:pt-8">
+                <p className="form-label text-lg font-medium text-blue-600 mb-2 lg:mb-10">
                     Password
                 </p>
                 <input className="w-full px-8 py-2 border border-solid focus-within:border-blue-800 focus-within:text-blue-800 outline-none text-white rounded-full text-lg"
