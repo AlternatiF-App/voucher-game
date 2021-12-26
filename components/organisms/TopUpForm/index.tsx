@@ -31,10 +31,6 @@ const TopUpForm = (props:TopUpFormProps) => {
     }
 
     const onSubmit = () => {
-        console.log('verifyID', verifyID)
-        console.log('Bank', accountName)
-        console.log('Nominal', nominalItem)
-        console.log('Payment', paymentItem)
         if((verifyID && accountName ) === '' || (nominalItem && paymentItem) === {}){
             toast.error('Please fill all the required fields')
         }else{
@@ -50,7 +46,7 @@ const TopUpForm = (props:TopUpFormProps) => {
     }
 
     return (
-        <form action="./checkout.html" method="POST">
+        <>
             <div className="md:pt-16 pt-8">
                 <div className="">
                     <p className="text-lg font-medium text-blue-800 mb-4">
@@ -128,7 +124,7 @@ const TopUpForm = (props:TopUpFormProps) => {
                     Continue
                 </button>
             </div>
-        </form>
+        </>
     )
 }
 

@@ -7,7 +7,7 @@ const SignUp = () => {
             <div className="">
                 <form action="">
                     <div className="pb-14">
-                        <a className="navbar-brand" href="../index.html">
+                        <a className="navbar-brand" href="">
                             <Image src="/icon/logo.svg" width={60} height={60}/>
                         </a>
                     </div>

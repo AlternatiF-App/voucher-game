@@ -40,7 +40,6 @@ const EditProfile = () => {
         if(res.error){
             toast.error(res.message)
         }else{
-            console.log('cok', res)
             Cookies.remove('token')
             router.push('/sign-in')
         }

@@ -1,10 +1,11 @@
+import Link from 'next/link'
 
 const NotFound = () => {
     return (
         <>
-            <section className="not-found mx-auto pt-145 pb-md-212 pb-100">
+            <section className="container mx-auto pt-20 md:pb-24 pb-16">
                 <div className="container-fluid">
-                    <div className="text-center">
+                    <div className="flex justify-center">
                         <svg className="img-fluid" width="483" height="300" viewBox="0 0 483 300" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
                             <g clip-path="url(#clip0)">
@@ -184,15 +185,18 @@ const NotFound = () => {
                             </defs>
                         </svg>
                     </div>
-                    <div className="pt-70 pb-md-50 pb-150">
-                        <h2 className="text-4xl fw-bold text-center color-palette-1 mb-10">Oops! Not Found</h2>
+                    <div className="pt-12 md:pb-16 pb-20">
+                        <h2 className="text-4xl font-bold text-center text-blue-600 mb-4">Oops! Not Found</h2>
                         <p className="text-lg text-center color-palette-1 m-0">Halaman yang anda kunjungi sudah<br
-                                className="d-sm-block d-none"/>
+                                className="sm:block hidden"/>
                             tidak tersedia pada sistem kami dan menghubungi</p>
                     </div>
-                    <div className="button-group d-flex flex-column mx-auto">
-                        <a className="btn btn-homepage fw-medium text-lg text-white rounded-pill" href="#"
-                            role="button">Homepage</a>
+                    <div className="flex justify-center">
+                        <Link href='/'>
+                            <a className="px-8 py-2 bg-blue-500 font-medium text-lg text-white rounded-full">
+                                Homepage
+                            </a>
+                        </Link>
                     </div>
                 </div>
             </section>   
