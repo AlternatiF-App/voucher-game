@@ -40,6 +40,7 @@ const OverviewContent = () => {
                                 return(
                                     <Category 
                                         key={item._id}
+                                        id={item._id}
                                         icon={'desktop'}
                                         name={item.name}
                                         value={item.value}
@@ -67,6 +68,7 @@ const OverviewContent = () => {
                                         return(
                                             <TableRow 
                                                 key={item._id}
+                                                id={item._id}
                                                 title={item.historyVoucherTopup.gameName}
                                                 category={item.historyVoucherTopup.category}
                                                 item={item.historyVoucherTopup.coinQuantity}

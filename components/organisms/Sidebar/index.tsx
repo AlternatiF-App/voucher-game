@@ -28,7 +28,7 @@ const Sidebar = ({activeMenu}:SidebarProps) => {
                     <ItemMenu icon={'card'} title={'Card'} link={'/member'}/>
                     <ItemMenu icon={'rewards'} title={'Rewards'} link={'/member'}/>
                     <ItemMenu icon={'settings'} title={'Settings'} link={'/member/edit-profile'} active={activeMenu === 'edit-profile'}/>
-                    <ItemMenu icon={'logout'} title={'Log Out'} onClick={() => pnLogout()}/>
+                    <ItemMenu icon={'logout'} title={'Log Out'} link={'/'} onClick={() => pnLogout()}/>
                 </div>
                 <FooterSidebar/>
             </div>

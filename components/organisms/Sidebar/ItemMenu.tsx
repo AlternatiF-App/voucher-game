@@ -4,7 +4,7 @@ interface ItemMenuProps{
     active?: boolean;
     icon: string;
     title: string;
-    link?: string;
+    link: string;
     onClick?: () => void;
 }
 

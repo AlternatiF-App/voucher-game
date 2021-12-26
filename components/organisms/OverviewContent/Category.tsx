@@ -2,12 +2,13 @@ import Image from 'next/image'
 import NumberFormat from 'react-number-format'
 
 interface CategoryProps{
+    id: any;
     icon: string;
     name: string;
     value:number;
 }
 
-const Category = ({icon, name, value}:CategoryProps) => {
+const Category = ({ id, icon, name, value}:CategoryProps) => {
     return (
         <div className="px-2 pb-1 lg:pb-0">
             <div className="p-8">
