@@ -18,7 +18,7 @@ const Sidebar = ({activeMenu}:SidebarProps) => {
     }
 
     return (
-        <section className="w-1/4">
+        <section className="w-1/4 hidden lg:block">
             <div className="relative h-screen overflow-y-auto hide-scroll-bar pt-14 pb-8 px-8">
                 <Profile/>
                 <div className="menus">

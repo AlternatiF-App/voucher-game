@@ -6,13 +6,14 @@ interface TableRowProps{
     title: string;
     category: string;
     item:string;
+    coinName: string;
     nominal:number;
     status:string;
     image:string;
     page?:string;
 }
 
-const TableRow = ({id, title, category, item, nominal, status, image, page}:TableRowProps) => {
+const TableRow = ({id, title, category, item, coinName, nominal, status, image, page}:TableRowProps) => {
     return (
         <tr>
             <th scope="flex items-center">
@@ -29,7 +30,7 @@ const TableRow = ({id, title, category, item, nominal, status, image, page}:Tabl
             </th>
             <td>
                 <p className="font-medium text-blue-800 m-0">
-                    {item} Gold
+                    {item} {coinName}
                 </p>
             </td>
             <td>

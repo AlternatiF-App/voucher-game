@@ -10,11 +10,11 @@ interface CategoryProps{
 
 const Category = ({ id, icon, name, value}:CategoryProps) => {
     return (
-        <div className="px-2 pb-1 lg:pb-0">
-            <div className="p-8">
+        <div className="px-2 pb-1 lg:pb-0 rounded-xl">
+            <div className="p-4 lg:p-8">
                 <div className="flex space-x-4 items-center mb-6">
                     <Image src={`/icon/ic-${icon}.svg`} width={60} height={60}/>
-                    <p className="text-blue-800 mb-0">
+                    <p className="text-blue-800">
                         Category<br/> {name}
                     </p>
                 </div>
@@ -22,7 +22,7 @@ const Category = ({ id, icon, name, value}:CategoryProps) => {
                     <p className="text-sm text-blue-800 mb-1">
                         Total Spent
                     </p>
-                    <p className="text-2xl text-blue-800 font-medium m-0">
+                    <p className="text-xl lg:text-2xl text-blue-800 font-medium m-0">
                         <NumberFormat value={value} prefix="Rp. " displayType='text' thousandSeparator="." decimalSeparator="," />
                     </p>
                 </div>
