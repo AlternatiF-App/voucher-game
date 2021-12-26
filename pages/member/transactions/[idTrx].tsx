@@ -10,7 +10,7 @@ interface TransactionDetailProps{
 
 const DetailTransition = ({transactionDetail}:TransactionDetailProps) => {
     return (
-        <section className="w-full flex overflow-auto">
+        <section className="w-full lg:flex overflow-auto">
             <Sidebar activeMenu={'transactions'}/>
             <TransactionDetailContent data={transactionDetail}/>
         </section>   

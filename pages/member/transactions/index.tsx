@@ -5,7 +5,7 @@ import jwtDecode from 'jwt-decode'
 const Transactions = () => {
     return (
         <>
-            <section className="w-full flex overflow-auto">
+            <section className="w-full lg:flex overflow-auto">
                 <Sidebar activeMenu={'transactions'}/>
                 <TransactionContent/>
             </section>

@@ -8,7 +8,7 @@ interface RowProps{
 
 const Row = ({label, value, className}:RowProps) => {
     return (
-        <p className="text-lg text-blue-500 mb-6">
+        <p className="text-base lg:text-lg text-blue-500 mb-6">
             {label} 
             <span className={`float-right ${className}`}>
                 {
